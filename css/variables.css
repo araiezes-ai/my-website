@@ -1,0 +1,77 @@
+:root {
+  /* === COLORS === */
+  --color-rose-deep:     #8B2252;
+  --color-rose-mid:      #C4627A;
+  --color-rose-blush:    #E8A5B0;
+  --color-rose-petal:    #F5D5D9;
+  --color-rose-morning:  #FDF0F2;
+  --color-cream:         #FAF6F1;
+  --color-ivory:         #F2EDE6;
+  --color-stone:         #8C7B75;
+  --color-charcoal:      #2C1F1F;
+  --color-white:         #FFFFFF;
+  --color-gold:          #C9A96E;
+  --color-gold-light:    #E8D5B0;
+  --color-bg-dark:       #1A0F0F;
+
+  /* === TYPOGRAPHY === */
+  --font-brand:    'Cormorant Garamond', 'Noto Serif JP', Georgia, serif;
+  --font-serif-ja: 'Noto Serif JP', serif;
+  --font-sans-ja:  'Noto Sans JP', sans-serif;
+
+  --text-xs:   0.64rem;
+  --text-sm:   0.8rem;
+  --text-base: 1rem;
+  --text-md:   1.25rem;
+  --text-lg:   1.563rem;
+  --text-xl:   1.953rem;
+  --text-2xl:  2.441rem;
+  --text-3xl:  3.052rem;
+  --text-hero: clamp(3rem, 7vw, 6rem);
+
+  --weight-light:   300;
+  --weight-regular: 400;
+  --weight-medium:  500;
+  --weight-bold:    700;
+
+  --leading-tight:  1.2;
+  --leading-snug:   1.4;
+  --leading-normal: 1.6;
+  --leading-loose:  1.9;
+
+  --tracking-normal: 0.05em;
+  --tracking-wide:   0.12em;
+  --tracking-wider:  0.22em;
+  --tracking-brand:  0.38em;
+
+  /* === SPACING (8px grid) === */
+  --space-1:  0.5rem;
+  --space-2:  1rem;
+  --space-3:  1.5rem;
+  --space-4:  2rem;
+  --space-6:  3rem;
+  --space-8:  4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+
+  --section-padding: clamp(4rem, 10vw, 8rem);
+  --container-max:   1200px;
+  --container-text:  680px;
+
+  /* === BORDERS / RADIUS === */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  16px;
+  --border-gold: 1px solid var(--color-gold-light);
+  --border-rose: 1px solid var(--color-rose-blush);
+
+  /* === SHADOWS === */
+  --shadow-soft:   0 4px 24px rgba(139, 34, 82, 0.08);
+  --shadow-medium: 0 8px 40px rgba(139, 34, 82, 0.14);
+  --shadow-strong: 0 16px 60px rgba(44, 31, 31, 0.2);
+
+  /* === TRANSITIONS === */
+  --transition-fast:   0.2s ease;
+  --transition-normal: 0.4s ease;
+  --transition-slow:   0.7s ease;
+}
