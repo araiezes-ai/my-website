@@ -1,52 +1,81 @@
-// ── Navigation scroll effect ──
-const nav = document.querySelector('.nav');
-
+// ── Header scroll state ──
+const header = document.getElementById('header');
 window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 60);
+  header.classList.toggle('scrolled', window.scrollY > 20);
 }, { passive: true });
 
-// ── Mobile hamburger ──
-const hamburger = document.querySelector('.nav-hamburger');
-const navLinks  = document.querySelector('.nav-links');
+// ── Mobile menu ──
+const hamburger = document.querySelector('.hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
 
 hamburger?.addEventListener('click', () => {
-  navLinks.classList.toggle('open');
+  mobileMenu.classList.toggle('open');
+});
+mobileMenu?.querySelectorAll('a').forEach(a => {
+  a.addEventListener('click', () => mobileMenu.classList.remove('open'));
 });
 
-navLinks?.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', () => navLinks.classList.remove('open'));
-});
-
-// ── Scroll-triggered fade-up animations ──
-const fadeTargets = document.querySelectorAll(
-  '.product-card, .ingredient-item, .ritual-step, .testimonial-card, .concept-grid, .value-item'
+// ── Scroll reveal (general) ──
+const revealEls = document.querySelectorAll(
+  '.editorial-inner, .product-feature, .pg-card, .ing-item, ' +
+  '.testi-card, .ritual-step, .newsletter-text'
 );
 
-const observer = new IntersectionObserver((entries) => {
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach((entry, i) => {
+    if (entry.isIntersecting) {
+      const el = entry.target;
+      const delay = el.dataset.delay || 0;
+      setTimeout(() => {
+        el.classList.add('reveal', 'visible');
+      }, delay);
+      revealObserver.unobserve(el);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+revealEls.forEach((el, i) => {
+  // Stagger cards in grids
+  const parent = el.parentElement;
+  const siblings = [...parent.children].filter(c =>
+    c.classList.contains('pg-card') ||
+    c.classList.contains('ing-item') ||
+    c.classList.contains('testi-card')
+  );
+  const idx = siblings.indexOf(el);
+  if (idx >= 0) el.dataset.delay = idx * 100;
+
+  el.classList.add('reveal');
+  revealObserver.observe(el);
+});
+
+// ── Ritual steps reveal ──
+const ritualSteps = document.querySelectorAll('.ritual-step');
+const ritualObserver = new IntersectionObserver((entries) => {
   entries.forEach(entry => {
     if (entry.isIntersecting) {
       entry.target.classList.add('visible');
-      observer.unobserve(entry.target);
+      ritualObserver.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+}, { threshold: 0.15 });
+ritualSteps.forEach(s => ritualObserver.observe(s));
 
-fadeTargets.forEach((el, i) => {
-  el.classList.add('fade-up');
-  el.style.transitionDelay = `${(i % 4) * 0.08}s`;
-  observer.observe(el);
-});
-
-// ── Smooth active nav link highlight ──
+// ── Active nav highlight on scroll ──
 const sections = document.querySelectorAll('section[id]');
-const navAnchors = document.querySelectorAll('.nav-links a[href^="#"]');
+const navAnchors = document.querySelectorAll('.nav a[href^="#"], .nav-left a, .nav-right a');
 
 window.addEventListener('scroll', () => {
   let current = '';
-  sections.forEach(section => {
-    if (window.scrollY >= section.offsetTop - 100) current = section.id;
+  sections.forEach(sec => {
+    if (window.scrollY >= sec.offsetTop - 120) current = sec.id;
   });
   navAnchors.forEach(a => {
-    a.style.color = a.getAttribute('href') === `#${current}` ? 'var(--rose-mid)' : '';
+    const href = a.getAttribute('href');
+    if (href === `#${current}`) {
+      a.style.color = 'var(--rose)';
+    } else {
+      a.style.color = '';
+    }
   });
 }, { passive: true });
