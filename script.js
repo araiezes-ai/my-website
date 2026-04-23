@@ -40,7 +40,7 @@ mobileNav?.querySelectorAll('a').forEach(a => {
 //   images/hero-5.jpg  (グラス + バラ クローズアップ)
 
 const HERO_IMAGES = [
-  { src: 'images/hero-1.jpg', alt: 'ピンクのバラとグラス' },
+  { src: '500_010.jpg', alt: 'ピンクのバラとグラス' },
   { src: 'images/hero-2.jpg', alt: 'ドライローズとキャンドル' },
   { src: 'images/hero-3.jpg', alt: 'ピオニーとバラ' },
   { src: 'images/hero-4.jpg', alt: '白い木板とピンクバラ' },
