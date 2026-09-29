@@ -1,320 +1,578 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>ValléE DeS RoseS ヴァレデローズ — ローズウォータースキンケア</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&family=Cormorant+SC:wght@300;400;500&family=Noto+Serif+JP:wght@200;300;400&family=IM+Fell+English:ital@1&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Vallee des Roses — フランス・プロヴァンス生まれのローズウォータースキンケア。薔薇の谷から、美しさの奇跡を。">
+  <title>Vallee des Roses — 薔薇の谷から、美しさの奇跡を。</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Serif+JP:wght@200;300;400;700&family=Noto+Sans+JP:wght@300;400&display=swap" rel="stylesheet">
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/reset.css">
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/animations.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/sections.css">
 </head>
+
 <body>
 
-  <!-- ══ Announcement Bar ══ -->
-  <div class="announcement">
-    ヴァレデローズの製品は最高品種ダマスクローズのローズオイル、ローズウォーターを使用しています
+  <!-- =====================
+       MOBILE MENU
+       ===================== -->
+  <div class="mobile-menu" id="mobileMenu" role="dialog" aria-modal="true" aria-label="ナビゲーションメニュー">
+    <button class="mobile-menu__close" id="mobileMenuClose" aria-label="メニューを閉じる">&times;</button>
+    <nav>
+      <ul style="display:flex;flex-direction:column;align-items:center;gap:2rem;">
+        <li><a class="mobile-menu__link" href="#philosophy">ブランドについて</a></li>
+        <li><a class="mobile-menu__link" href="#benefits">効能</a></li>
+        <li><a class="mobile-menu__link" href="#products">商品</a></li>
+        <li><a class="mobile-menu__link" href="#testimonials">お客様の声</a></li>
+        <li><a class="mobile-menu__link" href="#cta" style="color:var(--color-rose-mid)">ご購入</a></li>
+      </ul>
+    </nav>
   </div>
 
-  <!-- ══ Header ══ -->
-  <header class="header" id="header">
-    <div class="header-inner">
+  <!-- =====================
+       NAVIGATION
+       ===================== -->
+  <header class="nav nav--transparent" id="nav" role="banner">
+    <div class="container">
+      <div class="nav__inner">
+        <a href="#" class="nav__logo brand-text" aria-label="Vallee des Roses トップへ">
+          Vallee des Roses
+        </a>
 
-      <!-- Logo -->
-      <a href="/" class="logo">
-        <img src="images/logo.png" alt="ValléE DeS RoseS ヴァレデローズ" class="logo-img" />
-        <span class="logo-fallback">ValléE DeS RoseS<br /><small>ヴァレデローズ</small></span>
-      </a>
+        <nav class="nav__links" aria-label="メインナビゲーション">
+          <a class="nav__link" href="#philosophy">ブランドについて</a>
+          <a class="nav__link" href="#benefits">効能</a>
+          <a class="nav__link" href="#products">商品</a>
+          <a class="nav__link" href="#testimonials">お客様の声</a>
+        </nav>
 
-      <!-- Main Navigation -->
-      <nav class="nav" id="nav">
-        <a href="rose-water-premium.html" class="nav-item">
-          <span class="nav-en">Rose Water Premium</span>
-          <span class="nav-ja">ローズウォータープレミアム</span>
-        </a>
-        <a href="rose-koubo.html" class="nav-item">
-          <span class="nav-en">ROSE KOUBO</span>
-          <span class="nav-ja">発酵ローズウォーター</span>
-        </a>
-        <a href="skincare.html" class="nav-item">
-          <span class="nav-en">Skincare</span>
-          <span class="nav-ja">スキンケア</span>
-        </a>
-        <a href="rose-protect.html" class="nav-item">
-          <span class="nav-en">ROSE PROTECT</span>
-          <span class="nav-ja">除菌・消臭スプレー</span>
-        </a>
-        <a href="premium-zakuro.html" class="nav-item">
-          <span class="nav-en">Premium ZAKURO</span>
-          <span class="nav-ja">プレミアム ザクロペースト</span>
-        </a>
-        <a href="shop.html" class="nav-item">
-          <span class="nav-en">Online Shop</span>
-          <span class="nav-ja">オンラインショップ</span>
-        </a>
-        <a href="salon.html" class="nav-item">
-          <span class="nav-en">Salon</span>
-          <span class="nav-ja">サロン</span>
-        </a>
-      </nav>
+        <a class="nav__cta" href="#cta">ご購入</a>
 
-      <!-- SNS Links -->
-      <div class="header-sns">
-        <a href="https://www.facebook.com/vallee.des.roses" target="_blank" rel="noopener" class="sns-link">
-          <svg class="sns-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <span>FaceBook</span>
-        </a>
-        <a href="https://ameblo.jp/vallee-des-roses/" target="_blank" rel="noopener" class="sns-link">
-          <svg class="sns-icon" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 14H9V8h2v8zm4 0h-2V8h2v8z" fill="currentColor"/></svg>
-          <span>Amebaブログ</span>
-        </a>
+        <button class="nav__hamburger" id="navHamburger" aria-label="メニューを開く" aria-expanded="false">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-
-      <!-- Hamburger -->
-      <button class="hamburger" id="hamburger" aria-label="メニューを開く">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
-
-    <!-- Mobile Nav -->
-    <div class="mobile-nav" id="mobileNav">
-      <a href="rose-water-premium.html">Rose Water Premium <small>ローズウォータープレミアム</small></a>
-      <a href="rose-koubo.html">ROSE KOUBO <small>発酵ローズウォーター</small></a>
-      <a href="skincare.html">Skincare <small>スキンケア</small></a>
-      <a href="rose-protect.html">ROSE PROTECT <small>除菌・消臭スプレー</small></a>
-      <a href="premium-zakuro.html">Premium ZAKURO <small>プレミアム ザクロペースト</small></a>
-      <a href="shop.html">Online Shop <small>オンラインショップ</small></a>
-      <a href="salon.html">Salon <small>サロン</small></a>
     </div>
   </header>
 
-  <!-- ══ Hero ══ -->
-  <section class="hero">
-    <div class="hero-img-wrap">
-      <!--
-        自社画像をここに配置:
-        <img src="images/hero.jpg" alt="ローズウォータープレミアム" class="hero-img" />
-        ※ 複数枚をスライドショーにする場合は script.js のslider設定を参照
-      -->
-      <div class="hero-placeholder">
-        <div class="hero-placeholder-inner">
-          <!-- ブルーボトルのビジュアルイメージ -->
-          <div class="hero-bottle-art">
-            <div class="hba-bottle">
-              <div class="hba-label">
-                <span>ValléE DeS RoseS</span>
-                <span>ROSE WATER</span>
-                <span>PREMIUM</span>
+  <main>
+
+    <!-- =====================
+         HERO
+         ===================== -->
+    <section class="hero" id="hero" aria-label="ヒーロー">
+      <div class="hero__bg" role="presentation"></div>
+
+      <!-- Floating petals container -->
+      <div class="hero__petals" id="petalsContainer" aria-hidden="true"></div>
+
+      <div class="hero__content">
+        <span class="hero__label hero-animate-1">Provence, France</span>
+
+        <h1 class="hero__title hero-animate-2">
+          薔薇の谷から、<br>美しさの奇跡を。
+        </h1>
+
+        <p class="hero__subtitle hero-animate-3">
+          フランス・プロヴァンスの夜明け。<br>
+          一滴のローズウォーターに、<br>
+          千の花びらの力が宿る。
+        </p>
+
+        <div class="hero__actions hero-animate-4">
+          <a href="#products" class="btn btn--gold">コレクションを見る</a>
+          <a href="#philosophy" class="hero__secondary-link">ブランドストーリーを読む →</a>
+        </div>
+      </div>
+
+      <div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-text">Scroll</span>
+        <div class="hero__scroll-line scroll-indicator__arrow"></div>
+      </div>
+    </section>
+
+    <!-- =====================
+         PHILOSOPHY
+         ===================== -->
+    <section class="section section--cream" id="philosophy" aria-labelledby="philosophy-heading">
+      <div class="container">
+        <div class="grid-2">
+
+          <div class="philosophy__image reveal">
+            <div class="philosophy__image-inner" style="width:100%;height:100%;min-height:480px;background:linear-gradient(160deg,#f5d5d9 0%,#e8a5b0 40%,#c4627a 70%,#8b2252 100%);display:flex;align-items:center;justify-content:center;">
+              <!-- Rose illustration placeholder -->
+              <svg width="160" height="160" viewBox="0 0 160 160" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" style="opacity:0.35">
+                <circle cx="80" cy="80" r="75" stroke="white" stroke-width="1"/>
+                <path d="M80 30 C80 30 60 50 60 70 C60 85 68 95 80 95 C92 95 100 85 100 70 C100 50 80 30 80 30Z" fill="white" opacity="0.6"/>
+                <path d="M80 95 C80 95 55 80 50 65 C45 50 52 40 65 42 C72 43 78 52 80 60 C82 52 88 43 95 42 C108 40 115 50 110 65 C105 80 80 95 80 95Z" fill="white" opacity="0.5"/>
+                <path d="M80 95 C80 95 60 100 55 88 C50 75 58 68 68 72 C74 74 78 82 80 88 C82 82 86 74 92 72 C102 68 110 75 105 88 C100 100 80 95 80 95Z" fill="white" opacity="0.4"/>
+                <line x1="80" y1="95" x2="80" y2="135" stroke="white" stroke-width="1.5" opacity="0.5"/>
+                <line x1="65" y1="115" x2="80" y2="105" stroke="white" stroke-width="1" opacity="0.4"/>
+                <line x1="95" y1="110" x2="80" y2="100" stroke="white" stroke-width="1" opacity="0.4"/>
+              </svg>
+            </div>
+            <div class="philosophy__image-frame"></div>
+          </div>
+
+          <div class="philosophy__text reveal reveal-delay-1">
+            <span class="section-label">私たちについて</span>
+            <h2 class="section-heading" id="philosophy-heading">
+              美の本質は、<br>自然の中にある。
+            </h2>
+            <div class="divider"></div>
+
+            <p class="philosophy__body">
+              Vallee des Rosesは、フランス南部プロヴァンスの
+              ローズバレーに生まれました。
+              何世紀にもわたり、この地の職人たちは
+              バラの花びらから純粋なローズウォーターを
+              丁寧に蒸留し続けてきました。
+            </p>
+
+            <p class="philosophy__body">
+              私たちは、その伝統を現代の肌科学と融合させました。
+              一本一本の製品に、誠実さと美への敬意を込めて。
+              自然が与えてくれた最も美しいものを、
+              あなたの肌へ届けます。
+            </p>
+
+            <blockquote class="philosophy__quote">
+              <p class="philosophy__quote-text">「純粋さが、真の美しさをつくる。」</p>
+              <cite class="philosophy__quote-author">— Marie-Claire Dubois, 創設者</cite>
+            </blockquote>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         BENEFITS
+         ===================== -->
+    <section class="section section--ivory" id="benefits" aria-labelledby="benefits-heading">
+      <div class="container">
+
+        <div class="benefits__header text-center reveal">
+          <span class="section-label">なぜVallee des Rosesなのか</span>
+          <h2 class="section-heading" id="benefits-heading">肌に宿る、薔薇の力</h2>
+          <div class="divider divider--center"></div>
+        </div>
+
+        <div class="grid-3">
+
+          <div class="benefit-item reveal">
+            <div class="benefit-item__icon" aria-hidden="true">
+              <!-- Droplet icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/>
+              </svg>
+            </div>
+            <h3 class="benefit-item__title">深層保湿</h3>
+            <p class="benefit-item__desc">
+              バラ花水が肌の奥まで浸透し、<br>
+              12時間持続する潤いで満たします。
+            </p>
+          </div>
+
+          <div class="benefit-item reveal reveal-delay-1">
+            <div class="benefit-item__icon" aria-hidden="true">
+              <!-- Sparkle icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+              </svg>
+            </div>
+            <h3 class="benefit-item__title">透明感の向上</h3>
+            <p class="benefit-item__desc">
+              ビタミンCとローズヒップが協力し、<br>
+              肌の輝きを内側から引き出します。
+            </p>
+          </div>
+
+          <div class="benefit-item reveal reveal-delay-2">
+            <div class="benefit-item__icon" aria-hidden="true">
+              <!-- Leaf icon -->
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10z"/>
+                <path d="M2 21c0-3 1.85-5.36 5.08-6C9.5 14.52 12 13 13 12"/>
+              </svg>
+            </div>
+            <h3 class="benefit-item__title">エイジングケア</h3>
+            <p class="benefit-item__desc">
+              天然のローズポリフェノールが<br>
+              肌のコラーゲンをサポートし、<br>
+              若々しい弾力を保ちます。
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         PRODUCTS
+         ===================== -->
+    <section class="section section--cream" id="products" aria-labelledby="products-heading">
+      <div class="container">
+
+        <div class="products__header text-center reveal">
+          <span class="section-label">厳選されたコレクション</span>
+          <h2 class="section-heading" id="products-heading">薔薇が生んだ、三つの美</h2>
+          <div class="divider divider--center"></div>
+        </div>
+
+        <div class="grid-3">
+
+          <!-- Product 1 -->
+          <article class="product-card reveal">
+            <div class="product-card__image">
+              <div style="width:100%;height:100%;background:linear-gradient(160deg,#fdf0f2,#f5d5d9,#e8a5b0);display:flex;align-items:center;justify-content:center;" aria-hidden="true">
+                <svg width="80" height="120" viewBox="0 0 80 120" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5">
+                  <rect x="25" y="10" width="30" height="90" rx="15" stroke="#8B2252" stroke-width="1.5"/>
+                  <rect x="32" y="5" width="16" height="10" rx="3" stroke="#8B2252" stroke-width="1.5"/>
+                  <line x1="25" y1="35" x2="55" y2="35" stroke="#8B2252" stroke-width="0.5"/>
+                  <line x1="25" y1="75" x2="55" y2="75" stroke="#8B2252" stroke-width="0.5"/>
+                  <text x="40" y="58" text-anchor="middle" fill="#8B2252" font-size="6" font-family="serif" letter-spacing="1">ROSE</text>
+                </svg>
+              </div>
+              <div class="product-card__overlay">
+                <span class="product-card__overlay-text">詳細を見る</span>
               </div>
             </div>
-            <div class="hba-rose hba-rose--1">🌹</div>
-            <div class="hba-rose hba-rose--2">🌸</div>
-            <div class="hba-rose hba-rose--3">🌿</div>
+            <div class="product-card__body">
+              <p class="product-card__category">美容液</p>
+              <h3 class="product-card__name">ローズ セラム<br>エッセンス</h3>
+              <p class="product-card__desc">
+                プロヴァンス産ダマスクローズ100%の
+                ローズウォーターを基材とした、濃厚な美容液。
+                毎朝のケアに。
+              </p>
+              <div class="product-card__footer">
+                <span class="product-card__price">¥12,800</span>
+                <a href="#cta" class="product-card__btn">カートに追加</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 2 -->
+          <article class="product-card reveal reveal-delay-1">
+            <div class="product-card__image">
+              <div style="width:100%;height:100%;background:linear-gradient(160deg,#fdf0f2,#e8d5b0,#c9a96e);display:flex;align-items:center;justify-content:center;" aria-hidden="true">
+                <svg width="70" height="130" viewBox="0 0 70 130" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5">
+                  <rect x="15" y="8" width="40" height="100" rx="20" stroke="#8B2252" stroke-width="1.5"/>
+                  <rect x="27" y="3" width="16" height="12" rx="3" stroke="#8B2252" stroke-width="1.5"/>
+                  <line x1="15" y1="40" x2="55" y2="40" stroke="#8B2252" stroke-width="0.5"/>
+                  <line x1="15" y1="80" x2="55" y2="80" stroke="#8B2252" stroke-width="0.5"/>
+                  <text x="35" y="62" text-anchor="middle" fill="#8B2252" font-size="6" font-family="serif" letter-spacing="1">PURE</text>
+                </svg>
+              </div>
+              <div class="product-card__overlay">
+                <span class="product-card__overlay-text">詳細を見る</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">化粧水</p>
+              <h3 class="product-card__name">ピュア ローズ<br>ローション</h3>
+              <p class="product-card__desc">
+                蒸留したての新鮮なローズウォーターを
+                封じ込めた、みずみずしい化粧水。
+                洗顔後の最初の一歩に。
+              </p>
+              <div class="product-card__footer">
+                <span class="product-card__price">¥8,400</span>
+                <a href="#cta" class="product-card__btn">カートに追加</a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Product 3 -->
+          <article class="product-card reveal reveal-delay-2">
+            <div class="product-card__image">
+              <div style="width:100%;height:100%;background:linear-gradient(160deg,#fdf0f2,#f5d5d9,#8b2252);display:flex;align-items:center;justify-content:center;" aria-hidden="true">
+                <svg width="90" height="90" viewBox="0 0 90 90" fill="none" xmlns="http://www.w3.org/2000/svg" style="opacity:0.5">
+                  <ellipse cx="45" cy="55" rx="38" ry="28" stroke="white" stroke-width="1.5"/>
+                  <ellipse cx="45" cy="52" rx="33" ry="24" stroke="white" stroke-width="0.5"/>
+                  <rect x="30" y="20" width="30" height="36" rx="4" fill="white" opacity="0.2"/>
+                  <line x1="30" y1="38" x2="60" y2="38" stroke="white" stroke-width="0.5"/>
+                  <text x="45" y="32" text-anchor="middle" fill="white" font-size="5" font-family="serif" letter-spacing="1" opacity="0.8">NIGHT</text>
+                </svg>
+              </div>
+              <div class="product-card__overlay">
+                <span class="product-card__overlay-text">詳細を見る</span>
+              </div>
+            </div>
+            <div class="product-card__body">
+              <p class="product-card__category">ナイトクリーム</p>
+              <h3 class="product-card__name">ナイト リペア<br>クリーム</h3>
+              <p class="product-card__desc">
+                眠っている間に肌を再生する、濃厚なローズクリーム。
+                翌朝、鏡を見るのが楽しみになります。
+              </p>
+              <div class="product-card__footer">
+                <span class="product-card__price">¥15,600</span>
+                <a href="#cta" class="product-card__btn">カートに追加</a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =====================
+         INGREDIENT STORY
+         ===================== -->
+    <section class="section ingredient" id="ingredient" aria-labelledby="ingredient-heading">
+      <div class="ingredient__bg" role="presentation"></div>
+      <div class="ingredient__bg-overlay" role="presentation"></div>
+
+      <div class="container">
+        <div class="ingredient__content">
+          <span class="section-label" style="color:var(--color-gold-light)">産地へのこだわり</span>
+
+          <h2 class="ingredient__heading reveal" id="ingredient-heading">
+            プロヴァンスの夜明け、<br>最初の摘み取り。
+          </h2>
+
+          <div class="ingredient__divider shimmer-line reveal"></div>
+
+          <p class="ingredient__body reveal reveal-delay-1">
+            最高のローズウォーターは、夜明け前に始まります。
+            太陽が昇る前の、まだ露が残るその瞬間、
+            私たちの農家は手作業でバラの花びらを摘み取ります。
+            <br><br>
+            この一瞬だけが、花の香りと栄養を最も豊かに保っています。
+            Vallee des Rosesの全ての製品は、
+            その日の朝に摘んだ花びらから作られています。
+          </p>
+
+          <div class="ingredient__stats reveal reveal-delay-2">
+            <div class="stat-item">
+              <p class="stat-item__number">100%</p>
+              <p class="stat-item__label">天然由来成分</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-item__number">3,000</p>
+              <p class="stat-item__label">一本に使用される花びらの数</p>
+            </div>
+            <div class="stat-item">
+              <p class="stat-item__number">48h</p>
+              <p class="stat-item__label">摘み取りから製品化までの時間</p>
+            </div>
           </div>
         </div>
       </div>
-      <!-- Hero image: <img src="images/hero.jpg" ... /> をここに入れてください -->
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ Menu ══ -->
-  <section class="menu-section">
-    <div class="section-title-wrap">
-      <h2 class="section-title-serif">Menu</h2>
-      <div class="title-rule"></div>
-    </div>
-    <div class="menu-grid">
-      <a href="about.html" class="menu-card">
-        <div class="menu-card-img">
-          <img src="images/menu-about.jpg" alt="ABOUT" onerror="this.style.display='none'" />
-          <div class="menu-card-placeholder mc-about"></div>
+    <!-- =====================
+         INFORMATION
+         ===================== -->
+    <section class="section section--ivory" id="information" aria-labelledby="information-heading">
+      <div class="container">
+        <div class="information__header text-center reveal">
+          <h2 class="section-heading section-heading--script" id="information-heading">Information</h2>
+          <div class="divider divider--center"></div>
         </div>
-        <p class="menu-card-label">ABOUT</p>
-      </a>
-      <a href="products.html" class="menu-card">
-        <div class="menu-card-img">
-          <img src="images/menu-products.jpg" alt="PRODUCTS" onerror="this.style.display='none'" />
-          <div class="menu-card-placeholder mc-products"></div>
+        <!-- information.json から JS が動的に描画 -->
+        <div class="information__grid" id="infoGrid">
+          <div class="information__loading">読み込み中...</div>
         </div>
-        <p class="menu-card-label">PRODUCTS</p>
-      </a>
-      <a href="salon.html" class="menu-card">
-        <div class="menu-card-img">
-          <img src="images/menu-salon.jpg" alt="SALON" onerror="this.style.display='none'" />
-          <div class="menu-card-placeholder mc-salon"></div>
+        <div class="text-center" style="margin-top:3rem;">
+          <a href="information.html" class="btn btn--outline">もっと見る</a>
         </div>
-        <p class="menu-card-label">SALON</p>
-      </a>
-      <a href="shop.html" class="menu-card">
-        <div class="menu-card-img">
-          <img src="images/menu-shop.jpg" alt="ONLINE SHOP" onerror="this.style.display='none'" />
-          <div class="menu-card-placeholder mc-shop"></div>
-        </div>
-        <p class="menu-card-label">ONLINE SHOP</p>
-      </a>
-    </div>
-  </section>
-
-  <!-- ══ Information ══ -->
-  <section class="info-section" id="information">
-    <div class="section-title-wrap">
-      <h2 class="section-title-script">Information</h2>
-      <div class="title-rule"></div>
-    </div>
-    <!-- JS が information.json を読み込んでここに描画します -->
-    <div class="info-grid" id="infoGrid">
-      <div class="info-loading">読み込み中...</div>
-    </div>
-    <div class="info-more-wrap">
-      <a href="information.html" class="btn-more">もっと見る</a>
-    </div>
-  </section>
-
-  <!-- ══ Instagram ══ -->
-  <section class="instagram-section" id="instagram">
-    <div class="section-title-wrap">
-      <h2 class="section-title-script">Instagram</h2>
-      <div class="title-rule"></div>
-    </div>
-
-    <!--
-      ▼ Instagram ウィジェット設置方法 ▼
-
-      【方法A: Behold (推奨・無料プランあり)】
-      1. https://behold.so にアクセスしてアカウント作成
-      2. @valleedesroses_ginza を接続
-      3. 生成されたウィジェットコードを下記に貼り付け
-
-      【方法B: SnapWidget】
-      1. https://snapwidget.com で無料アカウント作成
-      2. Instagram アカウントを接続
-      3. 以下のiframeのsrcをあなたのウィジェットURLに変更
-
-      現在はプレースホルダーを表示中。接続後は下のdivを実際のウィジェットコードに置き換えてください。
-    -->
-
-    <!-- Behold ウィジェット挿入位置 -->
-    <div class="instagram-widget-wrap" id="instagramWidget">
-      <!-- ↓ ウィジェットコードをここに貼り付け ↓ -->
-      <!-- 例: <div id="behold-widget-xxx"></div><script>...</script> -->
-
-      <!-- プレースホルダー（ウィジェット接続前） -->
-      <div class="ig-placeholder-grid">
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card">
-          <div class="ig-card-img ig-img-1"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card">
-          <div class="ig-card-img ig-img-2"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card">
-          <div class="ig-card-img ig-img-3"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card">
-          <div class="ig-card-img ig-img-4"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card ig-card--hide-sm">
-          <div class="ig-card-img ig-img-5"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card ig-card--hide-sm">
-          <div class="ig-card-img ig-img-6"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card ig-card--hide-sm">
-          <div class="ig-card-img ig-img-7"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
-        <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-card ig-card--hide-sm">
-          <div class="ig-card-img ig-img-8"></div>
-          <div class="ig-card-overlay">
-            <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="white" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="white" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="white"/></svg>
-          </div>
-        </a>
       </div>
-    </div>
+    </section>
 
-    <div class="ig-follow-wrap">
-      <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="ig-follow-btn">
-        <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" class="ig-follow-icon"><rect x="2" y="2" width="20" height="20" rx="5" ry="5" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="1.5"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor"/></svg>
-        @valleedesroses_ginza をフォローする
-      </a>
-    </div>
-  </section>
+    <!-- =====================
+         INSTAGRAM
+         ===================== -->
+    <section class="section section--cream" id="instagram" aria-labelledby="instagram-heading">
+      <div class="container">
+        <div class="instagram__header text-center reveal">
+          <h2 class="section-heading section-heading--script" id="instagram-heading">Instagram</h2>
+          <div class="divider divider--center"></div>
+        </div>
 
-  <!-- ══ Beauty & Health Quote ══ -->
-  <section class="quote-section">
-    <div class="quote-bg"></div>
-    <div class="quote-content">
-      <span class="quote-open">&ldquo;</span>
-      <div class="quote-text">
-        <h2 class="quote-main">Beauty&amp;<br />Health</h2>
-        <p class="quote-sub">To the skin which is more beautiful<br />with the extract of the rose</p>
+        <!--
+          ▼ Beholdウィジェット設置場所 ▼
+          behold.so で @valleedesroses_ginza を接続し、
+          生成されたコードをこのコメントの下に貼り付けてください。
+          貼り付け後はプレースホルダーグリッドが自動で非表示になります。
+        -->
+
+        <div class="instagram__grid reveal" id="instagramGrid">
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--1"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--2"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--3"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--4"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell instagram__cell--hide-sm" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--5"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell instagram__cell--hide-sm" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--6"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell instagram__cell--hide-sm" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--7"></div><div class="instagram__cell-hover"></div></a>
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__cell instagram__cell--hide-sm" aria-label="Instagramへ"><div class="instagram__cell-bg ig-bg--8"></div><div class="instagram__cell-hover"></div></a>
+        </div>
+
+        <div class="text-center" style="margin-top:2rem;">
+          <a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener" class="instagram__follow-btn">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg>
+            @valleedesroses_ginza をフォローする
+          </a>
+        </div>
       </div>
-      <span class="quote-close">&rdquo;</span>
-    </div>
-  </section>
+    </section>
 
-  <!-- ══ Footer ══ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-logo-area">
-        <img src="images/logo.png" alt="ValléE DeS RoseS" class="footer-logo-img" onerror="this.style.display='none'" />
-        <p class="footer-logo-text">ValléE DeS RoseS</p>
-        <p class="footer-logo-sub">ヴァレデローズ</p>
+    <!-- =====================
+         TESTIMONIALS
+         ===================== -->
+    <section class="section section--rose-morning" id="testimonials" aria-labelledby="testimonials-heading">
+      <div class="container">
+
+        <div class="testimonials__header text-center reveal">
+          <span class="section-label">お客様の声</span>
+          <h2 class="section-heading" id="testimonials-heading">
+            美しさの変化を、<br>実感した方々から。
+          </h2>
+          <div class="divider divider--center"></div>
+        </div>
+
+        <div class="testimonials__grid">
+
+          <div class="testimonial-card reveal">
+            <div class="testimonial-card__stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="testimonial-card__text">
+              使い始めて二週間で、肌のトーンが明るくなりました。
+              朝のスキンケアが楽しみになっています。
+            </blockquote>
+            <cite class="testimonial-card__author">田中 美咲 — 34歳, 東京</cite>
+          </div>
+
+          <div class="testimonial-card reveal reveal-delay-1">
+            <div class="testimonial-card__stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="testimonial-card__text">
+              ローズの香りがとても上品で、毎日贅沢な気分になれます。
+              乾燥肌が改善されて、本当に嬉しい。
+            </blockquote>
+            <cite class="testimonial-card__author">佐藤 由香 — 28歳, 大阪</cite>
+          </div>
+
+          <div class="testimonial-card reveal reveal-delay-2">
+            <div class="testimonial-card__stars" aria-label="5つ星">★★★★★</div>
+            <blockquote class="testimonial-card__text">
+              友人へのギフトとして購入しました。とても喜ばれて、
+              私も使ってみたくなりました。パッケージも美しくて感動します。
+            </blockquote>
+            <cite class="testimonial-card__author">山本 恵子 — 42歳, 京都</cite>
+          </div>
+
+        </div>
       </div>
-      <div class="footer-nav">
-        <div class="footer-col">
-          <h4>PRODUCTS</h4>
-          <ul>
-            <li><a href="rose-water-premium.html">ローズウォータープレミアム</a></li>
-            <li><a href="rose-koubo.html">発酵ローズウォーター</a></li>
-            <li><a href="skincare.html">スキンケア</a></li>
-            <li><a href="rose-protect.html">除菌・消臭スプレー</a></li>
-            <li><a href="premium-zakuro.html">プレミアム ザクロペースト</a></li>
+    </section>
+
+    <!-- =====================
+         CTA SECTION
+         ===================== -->
+    <section class="section cta-section" id="cta" aria-labelledby="cta-heading">
+      <div class="cta-section__bg" role="presentation"></div>
+      <div class="cta-section__bg-pattern" role="presentation"></div>
+
+      <div class="container">
+        <div class="cta-section__content">
+          <span class="section-label reveal" style="color:var(--color-gold-light)">はじめての方へ</span>
+
+          <h2 class="cta-section__heading reveal" id="cta-heading">
+            あなたの肌に、<br>薔薇の奇跡を。
+          </h2>
+
+          <div class="divider divider--center shimmer-line reveal" style="margin:1.5rem auto 2rem;"></div>
+
+          <p class="cta-section__subtext reveal reveal-delay-1">
+            初回ご購入の方に、ミニローズウォータープレゼント。<br>
+            送料無料・30日間返品保証付き。
+          </p>
+
+          <div class="cta-section__actions reveal reveal-delay-2">
+            <a href="#products" class="btn btn--gold">今すぐ購入する</a>
+            <a href="#products" class="cta-section__secondary">まず試してみる — サンプルセットを見る</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =====================
+       FOOTER
+       ===================== -->
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer__top">
+
+        <div>
+          <p class="footer__brand-name brand-text">Vallee des Roses</p>
+          <p class="footer__brand-tagline">薔薇の谷から、美しさを。</p>
+          <p class="footer__brand-desc">
+            フランス・プロヴァンスの伝統的なローズウォーター製法と
+            現代の肌科学を融合させた、プレミアムスキンケアブランド。
+          </p>
+        </div>
+
+        <div>
+          <span class="footer__col-title">ショッピング</span>
+          <ul class="footer__links">
+            <li><a class="footer__link" href="#products">全商品を見る</a></li>
+            <li><a class="footer__link" href="#products">セラム &amp; 美容液</a></li>
+            <li><a class="footer__link" href="#products">化粧水・ローション</a></li>
+            <li><a class="footer__link" href="#products">クリーム &amp; バーム</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>COMPANY</h4>
-          <ul>
-            <li><a href="about.html">ヴァレデローズについて</a></li>
-            <li><a href="salon.html">サロン</a></li>
-            <li><a href="shop.html">オンラインショップ</a></li>
-            <li><a href="information.html">Information</a></li>
+
+        <div>
+          <span class="footer__col-title">ブランド</span>
+          <ul class="footer__links">
+            <li><a class="footer__link" href="#philosophy">ブランドについて</a></li>
+            <li><a class="footer__link" href="#ingredient">産地へのこだわり</a></li>
+            <li><a class="footer__link" href="#">サステナビリティ</a></li>
+            <li><a class="footer__link" href="#">プレス</a></li>
           </ul>
         </div>
-        <div class="footer-col">
-          <h4>FOLLOW US</h4>
-          <ul>
-            <li><a href="https://www.instagram.com/valleedesroses_ginza/" target="_blank" rel="noopener">Instagram</a></li>
-            <li><a href="https://www.facebook.com/vallee.des.roses" target="_blank" rel="noopener">Facebook</a></li>
-            <li><a href="https://ameblo.jp/vallee-des-roses/" target="_blank" rel="noopener">Amebaブログ</a></li>
+
+        <div>
+          <span class="footer__col-title">サポート</span>
+          <ul class="footer__links">
+            <li><a class="footer__link" href="#">よくある質問</a></li>
+            <li><a class="footer__link" href="#">配送・返品について</a></li>
+            <li><a class="footer__link" href="#">お問い合わせ</a></li>
+            <li><a class="footer__link" href="#">定期購入</a></li>
           </ul>
         </div>
+
       </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 ValléE DeS RoseS. All rights reserved.</p>
+
+      <div class="footer__bottom">
+        <p class="footer__copyright">
+          &copy; 2026 Vallee des Roses. All rights reserved.
+        </p>
+        <nav class="footer__legal-links" aria-label="法的リンク">
+          <a class="footer__legal-link" href="#">プライバシーポリシー</a>
+          <a class="footer__legal-link" href="#">特定商取引法に基づく表記</a>
+          <a class="footer__legal-link" href="#">Cookie設定</a>
+        </nav>
+      </div>
     </div>
   </footer>
 
-  <script src="script.js"></script>
+  <!-- Scripts -->
+  <script type="module" src="js/main.js"></script>
+
 </body>
 </html>
