@@ -31,7 +31,28 @@ body{{font-family:NS,'IPAPGothic',sans-serif;color:#2e3135;background:#fff}}
 def A(x,y,html,w=None,cls='',style=''):
     ws=f'width:{w}px;' if w else ''
     return f'<div class="a {cls}" style="left:{x}px;top:{y}px;{ws}{style}">{html}</div>'
-def ph(x,y,w,h,label): return f'<div class="a ph" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{label}</span></div>'
+from PIL import Image as _I
+import io as _io
+IMG={'画像：三綱領':('r-000.png','contain'),
+'写真：鉱山（上流）':'x_vc_mine.jpg','写真：製錬所（中流）':'x_vc_smelter.jpg','写真：洋上風力（用途）':'x_vc_wind.jpg','写真：EV（需要家）':'x_vc_ev.jpg',
+'写真：BMA鉱山・重機':'r-047.png','写真：原料炭':'r-048.png','写真：港湾・鉄道':'r-023.png','写真：パートナー':'r-051.png',
+'写真：銅鉱山':'r-053.png','写真：低炭素銅の取り組み':'r-046.png','写真：安定的な供給基盤':'r-054.png','写真：長期的な価値創造':'r-052.png',
+'写真：積出港・銅カソード':'r-072.png','写真：鉱山':'c_94ce967e-016.png','写真：製錬':'c_a5a586a7-010.png','写真：最終製品':'r-022.png',
+'写真：夜空と鉱山車両':'r-075.png',
+'写真：鉄鉱石':('x_ironore.jpg','contain'),'写真：ニッケル':('r-073.png','contain'),'写真：リチウム':('x_lithium.jpg','contain'),'写真：アルミ':('x_alu.jpg','contain'),'写真：ボーキサイト':('r-055.png','contain'),'写真：二次資源':'r-074.png',
+'写真：現場で働く人々':'r-082.png','写真：植生調査・環境':'r-084.png','写真：都市・人口':'x_ch076.jpg','写真：鉱山開発':'x_ch078.jpg','写真：港湾・物流':'x_ch080.jpg'}
+_cache={}
+def _uri(f):
+    if f not in _cache:
+        im=_I.open('img/'+f).convert('RGB'); im.thumbnail((1400,1400)); bf=_io.BytesIO(); im.save(bf,'JPEG',quality=86)
+        _cache[f]='data:image/jpeg;base64,'+base64.b64encode(bf.getvalue()).decode()
+    return _cache[f]
+def ph(x,y,w,h,label):
+    v=IMG.get(label)
+    if v:
+        f,fit=(v if isinstance(v,tuple) else (v,'cover'))
+        return f'<div class="a" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;background:#fff;overflow:hidden"><img src="{_uri(f)}" style="width:100%;height:100%;object-fit:{fit};display:block"></div>'
+    return f'<div class="a ph" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px"><span>{label}</span></div>'
 def bars(x,y,w,n,last=.55):
     s=''.join(f'<div class="bar" style="width:{(last if i==n-1 else 1)*100:.0f}%"></div>' for i in range(n))
     return A(x,y,s,w)
@@ -65,7 +86,7 @@ b+=A(L,200,core,330,'body',style='font-size:9.4px;line-height:1.75')
 b+=rule(L,452,CW)
 b+=h2(L,470,'Mitsubishi Corporation at a Glance')
 b+=A(L,496,"One of Japan's leading integrated trading companies",cls='cap',style='text-transform:none;letter-spacing:.3px;font-size:8px')
-b+=ph(L,524,150,190,'画像：三綱領')
+b+=ph(L,530,150,72,'画像：三綱領')+A(L,608,'The Three Corporate Principles',150,'cap',style='letter-spacing:1px')
 facts=[('1954','Founded'),('76','Countries &amp; regions<br>104 locations'),('Diverse','Business base across<br>industries'),('Integrated','Strength of a general<br>trading company')]
 for i,(n,c) in enumerate(facts):
     fx=L+178+(i%2)*162; fy=524+(i//2)*100
@@ -274,7 +295,7 @@ ch+='<line x1="0" y1="100.5" x2="165" y2="100.5" stroke="#9ea3a9" stroke-width="
 b+=A(L+330,446,'Trading performance',cls='cap')
 b+=svg(L+330,470,170,104,ch)
 b+=A(L+330,580,'FY20&nbsp;&nbsp;—&nbsp;&nbsp;FY25&nbsp;&nbsp;—&nbsp;&nbsp;FY30 (plan)',cls='cap',style='letter-spacing:1px')
-b+=note(L+330,596,'実績データ挿入（数値はダミー）',170)
+b+=A(L+330,452+12,'Base earnings: ¥16–17bn → ¥25bn (target)',170,'cap',style='color:#C8102E;letter-spacing:.8px')+note(L+330,596,'棒の値はダミー。粗原稿のグラフ数値を挿入',170)
 b+=rule(L,636,CW)
 b+=h2(L,650,'Case: from mine to end user')
 steps=['Mine','Trading','Smelting &amp; refining','Trading','End use']
@@ -314,7 +335,7 @@ b+=note(R,318+mh+96,'表紙と同じヘアライン地図を再利用。凡例�
 tiles=['Iron ore','Nickel','Lithium','Aluminium','Bauxite','Recycled resources']
 for i,t in enumerate(tiles):
     x=R+i*84; y=640
-    b+=ph(x,y,76,96,'写真')
+    b+=ph(x,y,76,96,'写真：'+['鉄鉱石','ニッケル','リチウム','アルミ','ボーキサイト','二次資源'][i])
     b+=A(x,y+116,t,80,'cap',style='color:#2e3135')
 pages.append(spread(b,8,9))
 
