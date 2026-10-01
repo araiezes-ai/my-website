@@ -59,7 +59,7 @@ svg=f'''<svg xmlns="http://www.w3.org/2000/svg" width="{W}" height="{H}" viewBox
 <rect width="{W}" height="{H}" fill="#fff"/>
 <g font-family="NS" font-weight="300" font-size="17.5" fill="#3d4044"><text x="46" y="118">Mitsubishi Corporation</text><text x="46" y="142">Mineral Resources Group</text><text x="46" y="166">Brochure</text></g>
 <line x1="48" y1="196" x2="70" y2="196" stroke="#C8102E" stroke-width="1"/>
-<g font-family="NS" font-weight="400" font-size="7.6" letter-spacing="1.6" fill="#6c7075" style="text-transform:uppercase">{biz}</g>
+
 <path d="{''.join(gray)}" stroke="url(#st)" stroke-width=".6" fill="none"/>
 <path d="{''.join(red)}" stroke="#C8102E" stroke-width="1.1" fill="none"/>
 <g stroke="url(#rs)" stroke-width=".45" fill="none">{risers}</g>
