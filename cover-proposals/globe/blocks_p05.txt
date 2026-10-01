@@ -1,0 +1,29 @@
+# right
+b+=chap(R,52,'第1章','HOW WE WORK（仮）')
+b+=sec(R,80,'事業概要')
+b+=A(R,98,'フルバリューチェーンで<br>社会に価値を届ける',cls='jh1')
+b+=bars(R,194,440,3)
+b+=rule(R,232,CW)
+b+=jh2(R,246,'川上から川下まで一気通貫で価値を創造')
+# value-chain infographic: three stage circles on a gold orbit line
+CY=372; RR=66; XS=[R+76,R+250,R+424]
+g=f'<defs><radialGradient id="gl5" cx="38%" cy="32%" r="75%"><stop offset="0" stop-color="#ffffff"/><stop offset=".7" stop-color="#eef4f9"/><stop offset="1" stop-color="#d9e6f0"/></radialGradient></defs>'
+g+=f'<line x1="{XS[0]-RR-R+10}" y1="{CY-300}" x2="{XS[2]+RR+16-R+10}" y2="{CY-300}" stroke="{GOLD}" stroke-width=".7"/>'
+g+=f'<path d="M{XS[2]+RR+10-R+10},{CY-300-4} l7,4 l-7,4" fill="none" stroke="{GOLD}" stroke-width=".7"/>'
+for x in XS: g+=f'<circle cx="{x-R+10}" cy="{CY-300}" r="{RR}" fill="url(#gl5)" stroke="#b9cbdb" stroke-width=".6"/>'
+for x in XS: g+=f'<circle cx="{x-R+10}" cy="{CY-300-RR}" r="2.4" fill="{GOLD}"/>'
+b+=svg(R-10,300,520,150,g)
+stage=[('上流','UPSTREAM','資源投資・開発','6','商品','投資・鉱山開発'),('中流','MIDSTREAM','製錬・加工・物流','','','銅地金・アルミ地金など<br>付加価値の高い製品へ'),('下流','DOWNSTREAM','販売・需要家','50','カ国','15業界×約1,000社')]
+for x,(j,e,t,n,u,c) in zip(XS,stage):
+    b+=A(x-60,CY-44,f'<div class="cap" style="color:{GOLD};letter-spacing:1.5px">{e}</div><div style="font-size:11px;font-weight:400;margin:4px 0 6px;letter-spacing:.5px">{t}</div><div class="num" style="font-size:24px;color:{BLUE}">{n}<span style="font-size:9px;margin-left:2px">{u}</span></div><div class="jl" style="font-size:6.4px;margin-top:3px">{c}</div>',120,style='text-align:center')
+    b+=bars(x-75,CY+RR+14,150,3)
+b+=rule(R,500,CW)
+# photo strip aligned to stages
+PH=[('写真：鉱山（上流）','鉱山',R),('写真：製錬所（中流）','製錬所',R+127),('写真：洋上風力（用途）','洋上風力',R+254),('写真：EV（需要家）','EV',R+381)]
+for l,cap,x in PH:
+    b+=ph(x,520,118,150,l)
+    b+=jl(x,676,cap,style='color:#2e3135')
+b+=svg(R,512,500,10,f'<line x1="59" y1="4" x2="440" y2="4" stroke="{GOLD}" stroke-width=".6"/>'+''.join(f'<circle cx="{59+i*127}" cy="4" r="2.2" fill="{GOLD}"/>' for i in range(4)))
+b+=A(R,700,'資源が鉱山から製品・需要家に届くまでを一本の流れで示す',CW,'jb',style='font-size:7.6px')
+b+=note(R,716,'各工程の説明文は粗原稿ではダミー文のため帯で表示。円内の数字は他ページ（P.04／P.08）から引用する案',CW)
+pages.append(spread(b,4,5))

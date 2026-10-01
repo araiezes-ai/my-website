@@ -52,4 +52,9 @@ b+=A(R-6,309,'',CW+12,style=f'height:{mh+6}px;background:radial-gradient(ellipse
 b+=svg(R,312,CW,mh,m+arcs+mk)'''
 assert old in src; src=src.replace(old,new)
 src=src.replace("open('inner_jp.html','w').write(html)","open('inner_globe.html','w').write(html)")
+
+_p5s=src.index("# right\nb+=chap(R,52,'第1章','HOW WE WORK（仮）')"); _p5e=src.index("pages.append(spread(b,4,5))")+len("pages.append(spread(b,4,5))")
+src=src[:_p5s]+open('blocks_p05.txt').read()+src[_p5e:]
+_p11s=src.index("b+=chap(R,52,'第4章'"); _p11e=src.index("pages.append(spread(b,10,11))")+len("pages.append(spread(b,10,11))")
+src=src[:_p11s]+open('blocks_p11.txt').read()+src[_p11e:]
 open('inner_globe.py','w').write(src)

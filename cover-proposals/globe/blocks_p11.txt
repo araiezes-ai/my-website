@@ -1,0 +1,28 @@
+b+=chap(R,52,'第4章','VISION &amp; ACTION（仮）')
+b+=A(R,98,'社会に必要な<br>良質な金属資源を<br>持続的に供給する',cls='jh1')
+b+=bars(R,238,220,3)
+b+=ph(R+250,150,249,150,'写真：植生調査・環境')
+b+=rule(R,322,CW)
+b+=jl(R,336,'グループミッション',style='color:#2e3135;font-weight:500')
+b+=A(R,354,f'<span style="color:{GOLD}">「</span>社会が必要とする良質な金属資源を、持続可能な形で安定供給することで、<br>より良い社会の実現に寄与する<span style="color:{GOLD}">」</span>',CW,style='font-size:14.5px;font-weight:300;line-height:1.65;letter-spacing:.8px')
+b+=rule(R,416,CW)
+ch3=[('01','社会課題','需要の拡大',['世界の人口増加','電化・脱炭素による金属需要の拡大','新興国のインフラ整備'],'写真：都市・人口'),
+('02','安定供給','開発難易度・供給制約',['優良資産の獲得競争の激化','鉱山開発の難易度上昇','環境規制・地域合意の重要性'],'写真：鉱山開発'),
+('03','地政学と供給網','トレーディング・供給の最適化',['地政学リスクの高まり','サプライチェーンの複雑化','柔軟で強靭な供給網の構築'],'写真：港湾・物流')]
+def cph(cx,cy,r,label):
+    v=IMG.get(label); f,fit=(v if isinstance(v,tuple) else (v,'cover'))
+    return A(cx-r,cy-r,f'<img src="{_uri(f)}" style="width:{2*r}px;height:{2*r}px;object-fit:cover;border-radius:50%;display:block">',2*r)
+CX=[R+82,R+250,R+418]
+conv=''
+for i,(n,t1,t2,items,p) in enumerate(ch3):
+    cx=CX[i]
+    b+=A(cx-80,430,f'<div class="num" style="font-size:20px;color:{BLUE}">{n}</div><div class="jl" style="color:{GOLD};margin-top:2px">{t1}</div><div style="font-size:9px;font-weight:400;margin-top:2px">{t2}</div>',160,style='text-align:center')
+    b+=cph(cx,530,44,p)
+    b+=A(cx-78,584,''.join(f'<div style="margin-bottom:2px">{s_}</div>' for s_ in items),156,'jb',style='font-size:7.3px;line-height:1.45;text-align:center')
+    conv+=f'<path d="M{cx-R},{640-628} C{cx-R},{668-628} {250},{650-628} {250},{690-628}" fill="none" stroke="{GOLD}" stroke-width=".7"/><circle cx="{cx-R}" cy="{640-628}" r="2.2" fill="{GOLD}"/>'
+b+=svg(R,628,500,70,conv)
+b+=A(R+40,700,'',CW-80,style='height:78px;border:.6px solid #c9d7e3;border-radius:39px;background:linear-gradient(90deg,#f4f8fb,#e6eef5)')
+b+=A(R+70,712,'社会課題への取り組み',200,style='font-size:11px;font-weight:400;letter-spacing:.6px')
+b+=A(R+70,730,'3つの課題に、資源・トレーディング・パートナーシップの総合力で応える',200,'jb',style='font-size:7px;line-height:1.5')
+b+=bars(R+270,716,180,4)
+pages.append(spread(b,10,11))
