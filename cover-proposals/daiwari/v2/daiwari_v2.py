@@ -32,6 +32,7 @@ body{{font-family:NS,'Noto Sans JP',sans-serif;color:#222;background:#fff}}
 def A(x,y,h,w=None,c='',s=''):
     return f'<div class="a {c}" style="left:{x}px;top:{y}px;{f"width:{w}px;" if w else ""}{s}">{h}</div>'
 def TAG(x,y,t): return A(x,y,t,None,'',"font-size:6.2px;color:#fff;background:#2a6fb0;padding:1px 5px;border-radius:2px;letter-spacing:.3px")
+def TAG0(x,y,t): return A(x,y,t,None,'',"font-size:6.2px;color:#fff;background:#2a6fb0;padding:1px 5px;border-radius:2px")
 def X(x,y,w,n,size=7.8,lh=1.75,tag='本文'):
     return A(x,y,'Ｘ'*n,w,'x',f'font-size:{size}px;line-height:{lh}')+''
 def XC(x,y,w,n,size=7.8,lh=1.75,tag='本文'):
@@ -58,10 +59,11 @@ A1="資源は、そこに「ある」だけでは、まだ価値ではありま�
 b=gb(0,0,1190,842,'')+ph(0,0,1190,842,'_mr_project_03.png')+A(0,0,'',1190,'',"height:842px;background:rgba(255,255,255,.35)")
 b+=A(36,40,'',440,'',"height:290px;background:#fff")
 b+=A(56,58,'導入｜コアメッセージ',None,'hd')+A(56+330,56,'読み手の心理：興味',None,'ps')
-b+=A(56,84,'持つ力と、つなぐ力。',400,'t1','font-size:24px')
-b+=A(56,120,'※コアメッセージはPwC提示の3案から選定中。A-1案を仮置き（英文：Strength to Hold. Power to Connect.）',400,'nt')
-b+=XC(56,142,400,len(A1),8.6,1.8,'コアメッセージ本文（A-1案と同字数）')
-b+=gb(56,256,180,52,'英文コアメッセージ併記の要否<br>（英語版冊子のため要検討）')
+b+=A(56,80,'Strength to Hold.<br>Power to Connect.',400,'t1','font-size:26px;line-height:1.2;font-weight:300')
+b+=A(56,146,'参考訳：持つ力と、つなぐ力。',None,'lb')+TAG0(190,146,'英文を主に')
+b+=A(56,164,"Xxxxxxxxx, xx xxxxx xxx, xx xxx xxxx xxxxx. Xx xxxxx xxxxxxx xx xxxxxxxx xxxx, xxxxxxx xxxx, xxx xxxxxxx xxxx xx xxxxx xxxx'xx xxxxxx. Xxxx xxxx xx xxxx xxxxxx xxxx xxxxx. Xx xxxxxx xxxx xxxxx-xxxxx xxxxxx, xxxxxxxxxx xxx xxxxx xxxxx xxxx xxxxxxxx xx xxxxxxxxxx xxxxxxx xxxxxxxxxx xxx xxxxxxx. Xxxxxxx xx xxxxx xx xxxx xxxxxx, xx xxx xxxxxx xxxx xxxxxx xxxxxx. Xxxxxxx xx xxxxx xxxxxxx xxxxxxx xxxxxxxx xxx xxxxx, xx xxxx xxx xxxxx xxxxxx xxx xxxxx xxxxxx. Xxxxxxx xx xxxx xxx xxxxxx, xx xxxx xxx xxxxx xxxxxxx xx xxx xxxxx xxxx xxxxx xxx xxxxxxx.",400,'x','font-family:NS;font-size:8.6px;line-height:1.7;word-break:normal;line-break:auto')
+b+=A(56,262,'▸コアメッセージ本文（英文）92語／547字（A-1案と同量）',None,'cnt')
+b+=nt(56,278,'コアメッセージはPwC提示の3案から選定中。A-1案を仮置き。英語版冊子のため英文を主とし、和文は社内確認用の参考訳として扱う',400)
 b+=A(700,26,'',430,'',"height:20px")
 b+=A(56+620,460,'',470,'',"height:340px;background:#fff")
 b+=A(696,478,'目次',None,'t1')
