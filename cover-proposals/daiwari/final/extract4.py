@@ -6,7 +6,7 @@ async def main():
     async with async_playwright() as p:
         b=await p.chromium.launch(executable_path='/opt/pw-browsers/chromium-1194/chrome-linux/chrome',args=['--no-sandbox'])
         pg=await b.new_page(viewport={'width':1300,'height':900},device_scale_factor=3)
-        await pg.goto('file://'+os.path.abspath('daiwari_v4.html'))
+        await pg.goto('file://'+os.path.abspath('daiwari_v5.html'))
         await pg.add_style_tag(content='.sp{zoom:1 !important}')
         await pg.wait_for_timeout(2500)
         data=await pg.evaluate(JS)
