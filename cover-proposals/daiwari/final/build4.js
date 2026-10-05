@@ -35,9 +35,9 @@ d.forEach((els,si)=>{
       runs.push({text:r.t,options:{fontSize:Math.max(r.fs,4),color:r.col?r.col.hex:'222222',bold:r.w>=500,charSpacing:r.ls||undefined}});
     });
     const lsp=e.lh? e.lh : e.fs*1.3;
-    const opt={x,y:IN(e.y),w:IN(e.w*1.04+1),h:IN(Math.max(e.h,e.fs*1.4)),margin:0,valign:(e.flex||(hasBg&&e.h<24))?'middle':'top',
+    const opt={x,y:IN(e.y),w:IN(e.w*1.04+1),h:IN(Math.max(e.h,e.fs*1.4)),margin:0,valign:(e.flex||((hasBg||full)&&e.h<24))?'middle':'top',
       align:(e.align==='center'||(e.flex&&e.jc==='center'))?'center':(e.align==='right'?'right':'left'),
-      fontFace:FONT,isTextBox:true,lineSpacing:(hasBg&&e.h<24)?undefined:lsp,fit:'none',wrap:!(e.h<=lsp*1.5 && !e.flex),objectName:'t'+si+'_'+ei,...shapeOpt};
+      fontFace:FONT,isTextBox:true,lineSpacing:((hasBg||full)&&e.h<24)?undefined:lsp,fit:'none',wrap:!(e.h<=lsp*1.5 && !e.flex),objectName:'t'+si+'_'+ei,...shapeOpt};
     if(e.flex||hasBg||full){opt.w=w;}
     if(round||e.rad>0){opt.shape=e.rad>=e.h/2-0.5?pres.shapes.ROUNDED_RECTANGLE:pres.shapes.RECTANGLE; if(opt.shape===pres.shapes.ROUNDED_RECTANGLE) opt.rectRadius=0.5;}
     if(full||hasBg){opt.margin=[2,3,2,3];}
