@@ -12,9 +12,10 @@ def lens(cx,cy,d,f=None,label='',pos='50% 50%'):
 pages=[]
 
 # =================== P02-03  OPENING：社会と金属 ===================
-FG=uri('v9/fg_front.png',1400,'PNG')
+FG=uri('v9/globe_new.png',1400,'PNG')
 gx,gy,gd=315,520,420
-b=f'<img class="a" src="{FG}" style="left:{gx-gd/2}px;top:{gy-gd/2}px;width:{gd}px;height:{gd}px">'
+_s=gd/875
+b=f'<img class="a" src="{FG}" style="left:{gx-755*_s:.1f}px;top:{gy-515*_s:.1f}px;width:{1536*_s:.1f}px;height:{1024*_s:.1f}px">'
 ring=f'<ellipse cx="{gx}" cy="{gy}" rx="245" ry="125" transform="rotate(-10 {gx} {gy})" fill="none" stroke="{GOLD}" stroke-width=".8"/>'
 b=svg(0,0,1190,842,ring.replace(f'stroke="{GOLD}"',f'stroke="{GOLDL}"'))+b
 life=[('x_ch076.jpg','Cities','都市・ビル',200),('x_case_pylon.jpg','Power','電力網',250),('x_vc_ev.jpg','Mobility','自動車・EV',300),(None,'Railways','鉄道',345),('x_vc_wind.jpg','Energy','再生可能エネルギー',30),(None,'Devices','スマートフォン',90),('x_ch080.jpg','Trade','物流・港湾',140)]
@@ -43,7 +44,7 @@ for i,(e,j,p) in enumerate(toc):
     y=580+i*33
     b+=A(R,y,'',W-40,'',f'border-top:.5px solid {HAIR}')+A(R,y+8,f'0{i+1}',None,'num','font-size:14px;color:'+GOLD)
     b+=A(R+36,y+6,e,None,'','font-size:9.4px;font-weight:300')+A(R+36,y+19,j,None,'sm','font-size:5.8px')+A(R+W-60,y+9,'P.'+p,None,'fo')
-orb=flow('M560,330 C640,270 900,258 1200,262',GOLDL,.7,.9)
+orb=flow('M560,330 C600,284 700,272 1200,266',GOLDL,.7,.9)
 pages.append(spread(b,2,3,'動画01 OPENING と同じ入り。地球を中心に、暮らしを支える金属の場面（都市・電力・EV・鉄道・再エネ・スマホ・物流）を金の軌道上に並べる。鉄道・スマホは素材待ち。','外部環境（需要拡大・供給制約・地政学）を冒頭に置き、「だから私たちが必要」とコアメッセージにつなぐ。目次は動画と同じ6項目。',orb))
 
 # =================== P04 Who we are（軽め） / P05 Our strengths（資産の大きさ） ===================
@@ -175,8 +176,9 @@ for i,(e,j) in enumerate([('Marketing &amp; Procurement','販売・調達'),('Lo
     x=L+i*104
     b+=A(x,fy+22,f'<div style="font-size:6.8px;font-weight:400">{e}</div><div class="sm" style="font-size:5.8px">{j}</div>',96,'',f'height:36px;border:.7px solid {GOLD};border-radius:18px;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center')
 # closing
-FB=uri('v9/fg_back.png',700,'PNG')
-b+=f'<img class="a" src="{FB}" style="left:1040px;top:640px;width:170px;height:170px">'
+FB=uri('v9/globe_new.png',900,'PNG')
+_s=165/875
+b+=f'<img class="a" src="{FB}" style="left:{1142-755*_s:.1f}px;top:{745-515*_s:.1f}px;width:{1536*_s:.1f}px;height:{1024*_s:.1f}px">'
 b+=A(R+10,fy,'OUR COMMITMENT',None,'sec')
 b+=A(R+10,fy+18,'“To contribute to a better society by providing a stable supply of high-quality mineral resources that society needs, in a sustainable way.”',370,'en','font-size:12.5px;line-height:1.45')
 b+=A(R+10,fy+76,'豊かな社会の実現に貢献することを目指して',None,'smb')
