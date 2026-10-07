@@ -40,25 +40,24 @@ b+=svg(0,0,1190,842,fr)
 pages.append(spread(b,2,3,'導入。表紙の地球儀を大きく扉に。軌道の輪がノドを越えて右ページへ伸び、コアメッセージと目次の間を通る。','コアメッセージと目次のみ。軌道線は文字に重ならない高さで横断させ、右端から次の見開きへ抜ける。'))
 
 # =================== P04 / P05 ===================
-orb=flow('M-10,345 C250,350 450,330 620,262 S950,254 1190,254',GOLD,.75,.8,[(300,345),(980,254)])
+orb=flow('M-10,318 C250,322 450,305 620,262 S950,254 1190,254',GOLD,.75,.8,[(300,318),(980,254)])
 b=BIG(400,30,'01')+BIG(985,30,'02')
 o,yy=H2(L,52,'01　WHO WE ARE','第1章　我々は何者か','From resource<br>to market.','三菱商事 金属資源グループとは','投資とトレーディングの両輪で、川上から川下までをつなぐ',body=60,bw=330)
 b+=o
 # value chain = two rings
-cx,vy=L+250,450; rx,ry=225,58
+cx,vy=L+250,470; rx,ry=218,75
 rings=(f'<ellipse cx="{cx}" cy="{vy-6}" rx="{rx+8}" ry="{ry+10}" fill="none" stroke="{GOLD}" stroke-width="1.6"/>'
        f'<ellipse cx="{cx}" cy="{vy+4}" rx="{rx-4}" ry="{ry}" fill="none" stroke="{BLUE}" stroke-width="1.6"/>')
 b+=svg(0,0,595,842,rings)
 b+=A(cx-90,vy-26,'Value chain',180,'en','font-size:22px;text-align:center;color:#7d8794')+A(cx-90,vy+2,'バリューチェーン',180,'secj','text-align:center')
 st=[('x_vc_mine.jpg','Mine','資源開発・保有'),('_mr_project_06.png','Trade','トレーディング'),('x_vc_smelter.jpg','Smelt / Steel','製錬・製鉄'),('r-072.png','Trade','トレーディング'),('x_vc_ev.jpg','End use','最終製品・需要家')]
 for k,(f,e,j) in enumerate(st):
-    t=math.radians(180-k*45); x=cx+rx*math.cos(t); y=vy+ry*math.sin(t)*1.0+ (ry if 0<k<4 else 0)*0
-    y=vy+ry*abs(math.sin(t))
-    b+=CIRC(x,y,50,f)+A(x-45,y+31,e,90,'','text-align:center;font-size:7.2px;font-weight:400')+A(x-45,y+42,j,90,'sm','text-align:center')
-b+=A(L+30,vy-112,f'<span style="color:{GOLD};font-weight:500;font-size:8.2px;letter-spacing:1.6px">INVESTMENT</span>　<span class="em" style="color:{GOLD}">資源投資</span><span class="sm">｜鉄鋼原料本部・クリティカルミネラル本部</span>',440)
-b+=A(L+30,vy+128,f'<span style="color:{BLUE};font-weight:500;font-size:8.2px;letter-spacing:1.6px">TRADING (RtM)</span>　<span class="em" style="color:{BLUE}">トレーディング</span><span class="sm">｜金属資源トレーディング本部</span>',440)
-b+=A(cx+rx-30,vy-ry-30,'2つの輪＝事業の両輪',120,'memo')
-jy=650
+    x=cx-rx+k*rx/2
+    y=vy+ry*math.sqrt(max(0,1-((x-cx)/rx)**2))
+    b+=CIRC(x,y,78,f)+A(x-45,y+45,e,90,'','text-align:center;font-size:7.6px;font-weight:400')+A(x-45,y+57,j,90,'sm','text-align:center')
+b+=A(L+30,vy-118,f'<span style="color:{GOLD};font-weight:500;font-size:8.2px;letter-spacing:1.6px">INVESTMENT</span>　<span class="em" style="color:{GOLD}">資源投資</span><span class="sm">｜鉄鋼原料本部・クリティカルミネラル本部</span>',440)
+b+=A(L+30,vy+152,f'<span style="color:{BLUE};font-weight:500;font-size:8.2px;letter-spacing:1.6px">TRADING (RtM)</span>　<span class="em" style="color:{BLUE}">トレーディング</span><span class="sm">｜金属資源トレーディング本部</span>',440)
+jy=664
 b+=SEC(L,jy,'OUR JOURNEY','時代を先読みし、事業モデルを変革してきた歩み')
 b+=svg(L,jy+42,W,20,f'<line x1="0" y1="10" x2="{W}" y2="10" stroke="{GOLDL}" stroke-width=".8"/>'+''.join(f'<circle cx="{4+i*101}" cy="10" r="3" fill="{GOLD}"/>' for i in range(5)))
 era=[('〜1990s','トレーディングに参入し、少数株主として出資'),('1990s','口銭モデルから投資モデルへ。JV運営の知見を蓄積'),('2000s','中国の成長を捉え、事業経営に関与（BHPと50:50）'),('2010s','原料炭偏重から脱却。資産価値の最大化へ'),('2020s〜','地域特化から、グローバルなトレーダーへ')]
@@ -89,24 +88,24 @@ rowy=cy_+50
 b+=svg(R-10,rowy-2,W+20,6,f'<line x1="0" y1="3" x2="{W+20}" y2="3" stroke="{GOLDL}" stroke-width=".8"/>')
 x=R+4
 for f,e,j,big in com:
-    d=44 if big else 30; c=x+d/2
+    d=60 if big else 42; c=x+d/2
     if f: b+=CIRC(c,rowy,d,f,ring=bool(big))
     else: b+=f'<div class="a" style="left:{c-d/2}px;top:{rowy-d/2}px;width:{d}px;height:{d}px;border-radius:50%;background:#fff;border:.8px solid {GOLD}"></div>'
-    b+=A(c-32,rowy+d/2+5,e,64,'','text-align:center;font-size:6.2px;font-weight:'+('500' if big else '300'))+A(c-32,rowy+d/2+15,j,64,'sm','text-align:center;font-size:5.8px')
-    x+=d+(18 if big else 22)
-hy=rowy+62
+    b+=A(c-34,rowy+d/2+6,e,68,'','text-align:center;font-size:6.6px;font-weight:'+('500' if big else '300'))+A(c-34,rowy+d/2+17,j,68,'sm','text-align:center;font-size:5.8px')
+    x+=d+(16 if big else 17)
+hy=rowy+84
 b+=SEC(R,hy,'TRADING HUB','世界の資源と需要をつなぐ販売網')
 hub=[('RtMI','RtM International'),('RtMJ','RtM Japan'),('RtMB','RtM Bharat'),('RtME','RtM Europe'),('RtMA','RtM Americas')]
 sub=['中国','UAE','インドネシア','タイ','チリ']
-hr=hy+46
+hr=hy+52
 b+=svg(R-10,hr-2,W+20,6,f'<line x1="0" y1="3" x2="{W+20}" y2="3" stroke="{GOLDL}" stroke-width=".8"/>')
 for i,(a,n) in enumerate(hub):
-    c=R+22+i*66
-    b+=f'<div class="a" style="left:{c-21}px;top:{hr-21}px;width:42px;height:42px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,{GLASS} 70%);border:.8px solid {GOLD};display:flex;align-items:center;justify-content:center;font-size:8px;color:{DEEP};font-weight:400">{a}</div>'
-    b+=A(c-34,hr+25,n,68,'','text-align:center;font-size:6px;font-weight:300')
+    c=R+26+i*68
+    b+=f'<div class="a" style="left:{c-25}px;top:{hr-25}px;width:50px;height:50px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#fff,{GLASS} 70%);border:.8px solid {GOLD};display:flex;align-items:center;justify-content:center;font-size:8px;color:{DEEP};font-weight:400">{a}</div>'
+    b+=A(c-34,hr+30,n,68,'','text-align:center;font-size:6px;font-weight:300')
 for i,n in enumerate(sub):
-    c=R+352+i*33
-    b+=f'<div class="a" style="left:{c-11}px;top:{hr-11}px;width:22px;height:22px;border-radius:50%;background:#fff;border:.8px solid {GOLD}"></div>'+A(c-20,hr+16,n,40,'sm','text-align:center;font-size:5.8px')
+    c=R+364+i*34
+    b+=f'<div class="a" style="left:{c-14}px;top:{hr-14}px;width:28px;height:28px;border-radius:50%;background:#fff;border:.8px solid {GOLD}"></div>'+A(c-20,hr+19,n,40,'sm','text-align:center;font-size:5.8px')
 pages.append(spread(b,4,5,'第1章を1ページに。「投資×トレーディング」を2つの輪（金＝投資、青＝トレーディング）として描き、両輪が事業の軸であることを強調。','第2章の扉＝全体像。地図＋取扱資源（肥料資源を追加）＋販売網（RtM 5社と主要拠点）。拠点・駐在（青）は名称なし。',orb))
 
 # =================== P06 / P07 ===================
