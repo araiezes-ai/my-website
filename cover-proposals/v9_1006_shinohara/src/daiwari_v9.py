@@ -118,7 +118,7 @@ wv=lambda off:'M'+' L'.join(f'{x},{WAVE(x)+off:.1f}' for x in range(0,1191,17))
 b+=svg(0,0,1190,842,flow(wv(10),GOLD,.7,.85,[(595,WAVE(595)+10)])+flow(wv(20),GOLDL,.6,.9))
 b+=A(L,40,'02　WHAT WE DO｜PILLAR 1',None,'lab','color:#fff;text-shadow:0 0 6px rgba(0,0,0,.35)')+A(R,40,'02　WHAT WE DO｜PILLAR 2',None,'lab','color:#fff;text-shadow:0 0 6px rgba(0,0,0,.35)')
 hh=360
-for x,en,jt,js in [(L,'World-class<br>metallurgical coal.','原料炭事業','鉄の主原料“産業のコメ”を、世界最高品位で届ける'),(R,'The world\'s largest<br>non-operating copper producer.','銅事業','自社操業を伴わずに、世界最大級の銅ポジションを築く')]:
+for x,en,jt,js in [(L,'World-class<br>metallurgical coal.','原料炭事業','鉄の主原料“産業のコメ”を、世界最高品位で届ける'),(R,'The partner the copper<br>industry calls first.','銅事業','自社操業を伴わずに、世界最大級の銅ポジションを築く')]:
     b+=A(x,hh,en,W+10,'en','font-size:28px')+A(x,hh+72,'',26,'',f'border-top:1px solid {RED}')+A(x,hh+82,jt,None,'jt')+A(x,hh+99,js,None,'js')
 def kpis(x0,kp):
     o=''

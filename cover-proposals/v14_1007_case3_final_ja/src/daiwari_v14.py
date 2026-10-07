@@ -185,7 +185,7 @@ facts=[('設立','1968年 MDP設立／2001年 BMA組成'),('所在地','豪州�
 for i,(k_,v) in enumerate(facts):
     y=fy+84+i*15; b+=rule(L,y,W)+T(L,y+4,k_,None,'l','color:'+G2)+T(L+110,y+3,v,None,'hs','font-size:7.2px')
 # copper text
-b+=T(R,352,'The world\'s largest<br>non-operating copper producer.',W+20,'d','font-size:30px')+A(R,420,'',22,'',f'border-top:1.4px solid {RED}')+T(R,430,'銅事業｜自社操業を伴わずに、世界最大級の銅ポジションを築く',None,'h')
+b+=T(R,352,'The partner the copper<br>industry calls first.',W+20,'d','font-size:30px')+A(R,420,'',22,'',f'border-top:1.4px solid {RED}')+T(R,430,'銅事業｜自社操業を伴わずに、世界最大級の銅ポジションを築く',None,'h')
 b+=para(R,452,250,'銅は原料炭に比べてプレイヤーが多く、寡占化が進んでいない市場です。そのなかで私たちは、規模で世界上位15に入る優良鉱山に複数参画し、日本最大・世界第20位の持分生産量を有しています。特定の1社に偏らず、主要メジャーのほぼすべてと共同事業・取引を行い、販売を通じた幅広い関係から、新しい案件で“声がかかる存在”であり続けています。')
 # mines timeline (early mover)
 tx,ty=R+270,452
