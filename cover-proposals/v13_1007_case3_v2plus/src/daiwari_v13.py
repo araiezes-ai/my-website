@@ -156,7 +156,7 @@ for i,(yr,t,d_) in enumerate(eras):
     o+=f'<circle cx="{x+4}" cy="{jy+46}" r="4" fill="{BR if i in (2,3) else INK}"/>'
     b+=T(x,jy+18,yr,None,'nb','font-size:18px')+T(x,jy+58,t,210,'hs','font-size:8.2px')+T(x,jy+74,d_,205,'b','font-size:6.6px;line-height:1.7')
 b+=S(o)
-b=OUT(340,6,'01')+OUT(1000,6,'02')+b+BAND(0,602,1190,24,'brush_a')
+b=OUT(436,6,'01')+OUT(1000,6,'02')+b+BAND(0,602,1190,24,'brush_a')
 pages.append(spread(b,4,5,'動画02 Who we are。三菱商事→金属資源G→組織（投資2本部＋トレーディング1本部、関係会社）を1ページに。ミッションはパネルで強調。','動画03 Our Strengths。【強調】一級資産の地図と数字3つ。下段の「歩み（先見性）」は見開き全幅の帯で左右をつなぐ（参考資料P34の意向）。'))
 
 # ============ P06-07  COAL & COPPER（強調） ============
