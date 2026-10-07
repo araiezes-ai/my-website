@@ -95,7 +95,7 @@ toc=[('01','Who We Are'),('02','Our Strengths'),('03','Coal &amp; Copper'),('04'
 b+=T(R+330,590,'CONTENTS',None,'k')
 for i,(n,e) in enumerate(toc):
     y=606+i*21; b+=rule(R+330,y,185)+T(R+330,y+6,n,None,'l','color:'+BR)+T(R+350,y+6,e,None,'l')+T(R+495,y+6,f'P.{[4,5,6,8,9,10][i]:02d}',None,'fo','font-size:5.4px')
-b+=BAND(0,403,760,18)
+b+=BAND(0,402,760,28)
 pages.append(spread(b,2,3,'動画01 OPENING。地球儀は使わず、暮らしと金属の写真を見開きで1枚のモザイクに（左＝暮らし、右＝それを支える金属）。キャッチコピー＋需要と供給のギャップを概念図で。','コアメッセージ（英・和）全文と目次。写真の帯が見開きをつなぎ、下段は左右で「問い」と「答え」の関係に。鉄道・スマホは素材待ち。'))
 
 # ============ P04-05  WHO WE ARE / OUR STRENGTHS（+歩みを見開きで） ============
@@ -156,7 +156,7 @@ for i,(yr,t,d_) in enumerate(eras):
     o+=f'<circle cx="{x+4}" cy="{jy+46}" r="4" fill="{BR if i in (2,3) else INK}"/>'
     b+=T(x,jy+18,yr,None,'nb','font-size:18px')+T(x,jy+58,t,210,'hs','font-size:8.2px')+T(x,jy+74,d_,205,'b','font-size:6.6px;line-height:1.7')
 b+=S(o)
-b=OUT(300,8,'01')+OUT(900,8,'02')+b+BAND(440,608,750,16,'brush_b')
+b=OUT(300,8,'01')+OUT(900,8,'02')+b+BAND(440,600,750,24,'brush_b')
 pages.append(spread(b,4,5,'動画02 Who we are。三菱商事→金属資源G→組織（投資2本部＋トレーディング1本部、関係会社）を1ページに。ミッションはパネルで強調。','動画03 Our Strengths。【強調】一級資産の地図と数字3つ。下段の「歩み（先見性）」は見開き全幅の帯で左右をつなぐ（参考資料P34の意向）。'))
 
 # ============ P06-07  COAL & COPPER（強調） ============
@@ -219,7 +219,7 @@ b+=rule(L,mb-8,1190-2*L,INK,.8)
 b+=T(L,mb,'MARKET STRUCTURE',None,'k')+T(L+110,mb,'上位5社のシェア',None,'kj')
 for x0,lab,v,t in [(L,'Metallurgical coal',80,'上位5社で約80%｜寡占度が高く、供給は漸減'),(R,'Copper',25,'上位5社で約25%｜寡占化が進まず、再編の機運')]:
     b+=T(x0,mb+16,lab,None,'l','font-size:7px')+A(x0+100,mb+16,'',400,'',f'height:10px;background:{G4}')+A(x0+100,mb+16,'',400*v/100,'',f'height:10px;background:{INK}')+T(x0+100+400*v/100+6,mb+15,f'{v}%',None,'nb','font-size:10px')+T(x0+100,mb+30,t,None,'s')
-b+=BAND(0,330,900,12)
+b+=BAND(0,330,900,18)
 pages.append(spread(b,6,7,'動画04 Coking Coal。【強調】写真の上に大きな数字。品位→鉄→需要→社会の4段ロジック、出資構成図、基本データ表。','動画05 Copper。【強調】参画年のタイムライン（先行して一級資産を確保）と生産量ランキング（当社のみ色）。最下段の「市場構造」バーが原料炭と銅を見開きで比較する。'))
 
 # ============ P08-09  FROM RESOURCES TO VALUE / GLOBAL PARTNERSHIPS ============
@@ -288,7 +288,7 @@ vy2=zy+60
 b+=T(R,vy2,'WHY PARTNERS VALUE US',None,'k')+T(R+140,vy2,'パートナーに評価される理由',None,'kj')
 for i,(e,j,d_) in enumerate([('Long-term view','中長期的な視座','資源事業は長期にわたる。短期的リターンを求める投資家とは一線を画す。'),('Risk sharing','リスクシェアリング','リスクの高い案件ほど、資金面の分担を担保する。'),('Integrated strength','総合力','幅広い産業接点を通じ、多様なバリューチェーンに知見を提供する。')]):
     x=R+i*176; b+=A(x,vy2+16,f'<div style="font-family:IN;font-weight:600;font-size:5.6px;letter-spacing:1.2px;color:{BR}">{e.upper()}</div><div class="hs" style="font-size:8.6px;font-weight:700;margin-top:2px">{j}</div><div class="s" style="margin-top:3px">{d_}</div>',164,'',f'height:62px;padding:8px 10px;background:{PAN}')
-b=OUT(330,8,'03')+OUT(930,8,'04')+b+BAND(595,0,595,14,'brush_b')
+b=OUT(330,8,'03')+OUT(930,8,'04')+b+BAND(595,0,595,26,'brush_b')
 pages.append(spread(b,8,9,'動画06 From Resources to Value。その他資源を6つのカードで（案件名と地域）。銅の品位の変化（1%→20–30%→99.99%）の上に、技術投資（CiDRA・Jetti・DESCycle・Triland）を配置。','動画07 Global Partnerships。Partner of Choiceの理由（本文）、4つの強み、RtMの販売網（シンガポール集約の10拠点）とエビデンス数値。'))
 
 # ============ P10-11  INTEGRATED VALUE CHAIN（強調） + CLOSING ============
@@ -315,8 +315,8 @@ for r_,(e,j,*cells) in enumerate(rows):
     b+=S(o)
 # two wheels bars
 wy=hy+228
-b+=A(cx[0],wy,f'<span style="font-family:IN;font-weight:600;font-size:6.4px;letter-spacing:1.6px;color:#fff">INVESTMENT</span>　<span style="font-family:Noto Sans JP;font-weight:700;font-size:8.4px;color:#fff">資源投資（鉱山・製鉄／製錬）｜鉄鋼原料本部・クリティカルミネラル本部</span>',cx[2]+cw[2]-cx[0],'',f'height:24px;padding:6px 10px;line-height:12px;background:{BR}')
-b+=A(cx[0],wy+28,f'<span style="font-family:IN;font-weight:600;font-size:6.4px;letter-spacing:1.6px;color:#fff">TRADING (RtM)</span>　<span style="font-family:Noto Sans JP;font-weight:700;font-size:8.4px;color:#fff">トレーディング｜金属資源トレーディング本部 — 15業界 × 50カ国 × 約1,000社</span>',cx[4]+cw[4]-cx[0],'',f'height:24px;padding:6px 10px;line-height:12px;background:{NV}')
+b+=A(cx[0],wy,f'<span style="font-family:IN;font-weight:600;font-size:6.4px;letter-spacing:1.6px;color:#fff">INVESTMENT</span>　<span style="font-family:Noto Sans JP;font-weight:700;font-size:8.4px;color:#fff">資源投資（鉱山・製鉄／製錬）｜鉄鋼原料本部・クリティカルミネラル本部</span>',cx[2]+cw[2]-cx[0],'',f'height:24px;padding:6px 10px;line-height:12px;background:url({uri("v9/brush_inv.png",2400,"PNG")}) center/cover')
+b+=A(cx[0],wy+28,f'<span style="font-family:IN;font-weight:600;font-size:6.4px;letter-spacing:1.6px;color:#fff">TRADING (RtM)</span>　<span style="font-family:Noto Sans JP;font-weight:700;font-size:8.4px;color:#fff">トレーディング｜金属資源トレーディング本部 — 15業界 × 50カ国 × 約1,000社</span>',cx[4]+cw[4]-cx[0],'',f'height:24px;padding:6px 10px;line-height:12px;background:url({uri("v9/brush_trd.png",2400,"PNG")}) center/cover')
 # bottom-left: virtuous cycle + functions
 by=wy+72
 b+=T(L,by,'THE VIRTUOUS CYCLE',None,'k')+T(L+110,by,'投資と販売が連携する好循環',None,'kj')
@@ -341,7 +341,7 @@ b+=T(R+64,by+114,'需要の拡大、供給制約、地政学リスク——変�
 b+=S(f'<line x1="{R+64}" y1="{by+156}" x2="{1150}" y2="{by+156}" stroke="#3b4148" stroke-width=".6"/>')
 b+=svg(0,0,1190,842,'')+T(R+64,by+164,'Mitsubishi Corporation　Mineral Resources Group',None,'l','color:#fff')+T(R+64,by+175,'2-3-1 Marunouchi, Chiyoda-ku, Tokyo 100-8086, Japan　|　www.mitsubishicorp.com',None,'s','color:#9aa1a8;font-family:IN')
 b+=tile(0,712,393,96,'mr_01_01@2x.webp','50% 60%','Port &amp; rail','',2000)+tile(397,712,396,96,'r-023.png','50% 55%','Seaborne logistics','')+tile(797,712,393,96,'r-075.png','50% 60%','Operations','')
-b=OUT(860,8,'05')+b+BAND(300,694,890,14)
+b=OUT(860,8,'05')+b
 pages.append(spread(b,10,11,'動画08 Integrated Value Chain。【強調】見開き全幅の表で、鉄鋼・非鉄の2段×川上→川下を整理。投資（ブロンズ）とトレーディング（ネイビー）の帯で両輪を明示。左下は投資⇄販売の好循環。','動画09 Closing。右下の濃色パネルで約束（ミッション）と外部環境への答え（安定供給・効率的な供給）、連絡先で締める。'))
 
 links=''.join(f'<link rel="stylesheet" href="f/nsjp/package/{w}.css">' for w in (400,500,700))
