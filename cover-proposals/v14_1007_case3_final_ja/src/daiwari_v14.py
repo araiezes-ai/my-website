@@ -81,7 +81,7 @@ o+=f'<path d="M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in dem)+f'" fill="none" st
 o+=f'<path d="M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in sup)+f'" fill="none" stroke="{G2}" stroke-width="1.6" stroke-dasharray="3 2"/>'
 o+=f'<line x1="{cx0+16}" y1="{cy0+ch-22}" x2="{cx0+cw-14}" y2="{cy0+ch-22}" stroke="{G3}" stroke-width=".6"/>'
 b+=S(o)
-b+=T(cx0+10,cy0+8,'需要と供給',None,'k','color:'+G1)+T(cx0+10,cy0+18,'概念図（数値は入れない）',None,'s','font-size:5.4px')
+b+=T(cx0+10,cy0+8,'需要と供給',None,'k','color:'+G1)+T(cx0+10,cy0+18,'',None,'s','font-size:5.4px')
 b+=T(cx0+cw-70,cy0+30,'需要',None,'l')+T(cx0+cw-70,cy0+39,'人口増・電化',None,'s','font-size:5.6px')
 b+=T(cx0+cw-62,cy0+ch-58,'供給',None,'l','color:'+G2)+T(cx0+cw-62,cy0+ch-49,'供給制約・地政学',None,'s','font-size:5.6px')
 b+=T(cx0+cw-104,cy0+ch-66,'ギャップ',None,'k','color:'+BR)
@@ -149,8 +149,8 @@ o=f'<line x1="{L}" y1="{jy+46}" x2="{1190-L}" y2="{jy+46}" stroke="{INK}" stroke
 eras=[('1980s–90s','トレーディングで参入','日本が世界最大の消費国だった時代。資源を日本へ運ぶ役割から始まり、少数株主として出資。'),
       ('1990s','投資モデルへ転換','口銭モデルから投資モデルへ。JV運営の知見を蓄積し、事業経営へと舵を切る。'),
       ('2000s','BHPと50:50のBMA','2001年、BHPと50:50でBMAを組成。中国の成長を捉え、世界の一級原料炭資産の経営に参画。'),
-      ('2010s','銅の権益を拡大','「原料炭だけでよいのか」という問いから銅へ。Anglo Americanと組みQuellavecoなど大型化。'),
-      ('2020s','グローバルなトレーダーへ','各地のマーケティングをRtMとしてシンガポールに集約。地域特化から世界の市場へ。')]
+      ('2010s','銅の権益を拡大','「原料炭だけでよいのか」という問いから銅へ。Anglo Americanと組みQuellavecoなど大型化。2012年にRtMを設立し、マーケティングを集約。'),
+      ('2020s','グローバルなトレーダーへ','地域に特化したトレーディングから、世界の市場を相手にするグローバルなトレーダーへ。')]
 for i,(yr,t,d_) in enumerate(eras):
     x=L+i*226
     o+=f'<circle cx="{x+4}" cy="{jy+46}" r="4" fill="{BR if i in (2,3) else INK}"/>'
@@ -283,7 +283,7 @@ zy=ny+16+MH+40
 b+=rule(R,zy,W,INK,1)
 b+=T(R,zy+10,'JV実績',None,'k')+T(R+92,zy+10,'業界最大手とのJV実績',None,'kj')
 for i,n in enumerate(['BHP','Rio Tinto','Anglo American']): b+=T(R+i*120,zy+26,n,None,'nb','font-size:17px')
-b+=T(R+372,zy+26,'他社ロゴは使用せず<br>社名テキストで表記',None,'s')
+b+=T(R+372,zy+26,'',None,'s')
 vy2=zy+70
 b+=T(R,vy2,'パートナーに評価される理由',None,'k')+T(R+140,vy2,'パートナーに評価される理由',None,'kj')
 for i,(e,j,d_) in enumerate([('','中長期的な視座','資源事業は長期にわたる。短期的リターンを求める投資家とは一線を画す。'),('','リスクシェアリング','リスクの高い案件ほど、資金面の分担を担保する。'),('','総合力','幅広い産業接点を通じ、多様なバリューチェーンに知見を提供する。')]):
