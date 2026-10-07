@@ -48,7 +48,7 @@ def spread(b,l,r,ml,mr):
 def S(inner): return svg(0,0,1190,842,inner)
 L=40; R=635; W=515
 CSS2+=".out{font-family:IT;font-weight:300;line-height:.8;letter-spacing:-.04em;color:transparent;-webkit-text-stroke:.8px #c9ced3}\n"
-def OUT(x,y,t,size=230,col='#c9ced3'): return T(x,y,t,None,'out',f'font-size:{size}px;-webkit-text-stroke-color:{col}')
+def OUT(x,y,t,size=190,col='#c9ced3'): return T(x,y,t,None,'out',f'font-size:{size}px;-webkit-text-stroke-color:{col}')
 def BAND(x,y,w,h,f='brush_a',pos='50% 50%'): return f'<img class="a ph" src="{uri("v9/"+f+".png",2400,"PNG")}" style="left:{x}px;top:{y}px;width:{w}px;height:{h}px;object-position:{pos}">'
 pages=[]
 
@@ -103,9 +103,9 @@ o,yy=head(L,40,'01 · Who we are','第1章　我々は何者か','Who we are.','
 b=o
 b+=para(L,yy+4,250,'三菱商事は、三綱領（所期奉公・処事光明・立業貿易）を企業理念に、経済価値・環境価値・社会価値の同時実現を目指す総合商社です。そのなかで金属資源グループは、社会に不可欠な金属資源を世界から確保し、安定的に届ける役割を担っています。原料炭と銅は、全社としてコミットする中核事業です。')
 # mission panel
-b+=A(L+270,yy-56,'',245,'',f'height:118px;background:{PAN}')
-b+=T(L+284,yy-44,'GROUP MISSION',None,'k')+T(L+284,yy-28,'社会が必要とする良質な金属資源を、持続可能な形で安定供給することで、より良い社会の実現に寄与する',215,'hs','font-size:9.4px;line-height:1.6')
-b+=T(L+284,yy+30,'To contribute to a better society by providing a stable supply of high-quality mineral resources in a sustainable way.',215,'s','font-family:IN;font-size:6.2px')
+b+=A(L+270,yy-26,'',245,'',f'height:118px;background:{PAN}')
+b+=T(L+284,yy-14,'GROUP MISSION',None,'k')+T(L+284,yy+2,'社会が必要とする良質な金属資源を、持続可能な形で安定供給することで、より良い社会の実現に寄与する',215,'hs','font-size:9.4px;line-height:1.6')
+b+=T(L+284,yy+60,'To contribute to a better society by providing a stable supply of high-quality mineral resources in a sustainable way.',215,'s','font-family:IN;font-size:6.2px')
 # organisation infographic
 oy=yy+110
 b+=T(L,oy,'ORGANIZATION',None,'k')+T(L+80,oy,'投資を担う2本部と、トレーディングを担う1本部',None,'kj')
@@ -156,7 +156,7 @@ for i,(yr,t,d_) in enumerate(eras):
     o+=f'<circle cx="{x+4}" cy="{jy+46}" r="4" fill="{BR if i in (2,3) else INK}"/>'
     b+=T(x,jy+18,yr,None,'nb','font-size:18px')+T(x,jy+58,t,210,'hs','font-size:8.2px')+T(x,jy+74,d_,205,'b','font-size:6.6px;line-height:1.7')
 b+=S(o)
-b=OUT(300,8,'01')+OUT(900,8,'02')+b+BAND(440,600,750,24,'brush_b')
+b=OUT(300,0,'01')+OUT(900,0,'02')+b+BAND(0,602,1190,24,'brush_a')
 pages.append(spread(b,4,5,'動画02 Who we are。三菱商事→金属資源G→組織（投資2本部＋トレーディング1本部、関係会社）を1ページに。ミッションはパネルで強調。','動画03 Our Strengths。【強調】一級資産の地図と数字3つ。下段の「歩み（先見性）」は見開き全幅の帯で左右をつなぐ（参考資料P34の意向）。'))
 
 # ============ P06-07  COAL & COPPER（強調） ============
