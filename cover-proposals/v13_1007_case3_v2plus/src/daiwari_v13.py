@@ -226,15 +226,15 @@ pages.append(spread(b,6,7,'動画04 Coking Coal。【強調】写真の上に大
 o,yy=head(L,40,'03 · From resources to value','第2章　独自価値｜事業領域と新技術','Resources become<br>value when delivered.','鉄鉱石から電池資源・肥料・アルミまで、世界に広がる事業領域',size=36)
 b=o
 b+=para(L,yy+2,W,'資源は、ただ存在するだけでは社会の価値になりません。良質な資源を安定的に確保し、高品質な金属へと精錬し、必要とする産業へ届けてはじめて価値になります。原料炭と銅に加え、私たちは鉄鉱石、電池資源、アルミ、肥料、二次資源へと事業領域を広げています。')
-gy=yy+52
+gy=yy+68
 port=[('Iron Ore','鉄鉱石','IOC（カナダ）・CMP（チリ）','x_ironore.jpg'),('Nickel','ニッケル','Turnagain（カナダ）・Kalgoorlie（豪州）','x_case_mine.jpg'),('Lithium','リチウム','PAK Lithium（カナダ）','x_lithium.jpg'),('Bauxite · Aluminium','ボーキサイト・低炭素アルミ','Aurukun（豪州）・Arctial（北欧）','x_alu.jpg'),('Fertilizer','肥料資源','Woodsmith（英国）',None),('Recycled','二次資源','リサイクル由来の金属資源','r-074.png')]
 for i,(e,j,p_,f) in enumerate(port):
-    x=L+(i%3)*174; y=gy+(i//3)*92
+    x=L+(i%3)*174; y=gy+(i//3)*104
     b+=(CIRC(x+22,y+22,40,f,ring=False) if f else A(x+2,y+2,'',40,'',f'height:40px;border-radius:50%;border:1px solid {BR}'))
     b+=T(x+52,y+6,e,None,'l','font-size:7.4px;font-weight:600')+T(x+52,y+17,j,None,'hs','font-size:7.4px')+T(x,y+50,p_,165,'s')
     b+=rule(x,y+82,160)
 # copper chain + tech
-cy=gy+200
+cy=gy+222
 b+=T(L,cy,'NEW TECHNOLOGY ALONG THE COPPER CHAIN',None,'k')+T(L,cy+11,'山を持つだけでなく、川上から川下までのボトルネックに技術で網を張る',None,'kj')
 st=[('Mine','採掘','Cu ~1%'),('Concentrate','選鉱・浸出','Cu 20–30%'),('Cathode','製錬・精製','Cu 99.99%'),('End use','最終製品','電化・インフラ'),('Recycle','回収','再び供給へ')]
 o=''
@@ -249,22 +249,22 @@ for k,(si,n,t_,d_) in enumerate(tech):
     o+=f'<path d="M{sx_},{cy+78} V{cy+96} H{x+10} V{y}" fill="none" stroke="{BR}" stroke-width=".7"/><circle cx="{sx_}" cy="{cy+78}" r="2" fill="{BR}"/>'
     b+=A(x,y,f'<div style="font-family:IN;font-weight:600;font-size:5.4px;letter-spacing:1.2px;color:{BR}">{t_}</div><div class="l" style="font-weight:600;font-size:8.6px;margin-top:2px">{n}</div><div class="s" style="margin-top:2px">{d_}</div>',122,'',f'height:58px;padding:7px 9px;border-top:1.4px solid {BR};background:#fff')
 b+=S(o)
-py8=cy+190
+py8=cy+196
 b+=para(L,py8,250,'新技術の把握は、既存事業の高度化と将来価値の創出に還元されます。業界のボトルネック——鉱石品位の低下、回収率、リサイクル——に挑むスタートアップへの投資を通じ、山を持つだけでも、売るだけでもない、川上から川下までのフットプリントを広げています。')
-b+=tile(L+270,py8,245,96,'_mr_project_03.png','50% 50%','Copper mine','Chile')
+b+=tile(L+270,py8,245,112,'_mr_project_03.png','50% 50%','Copper mine','Chile')
 # P09 partnerships
 o,yy=head(R,40,'04 · Global partnerships','第3章　選ばれ続ける理由','Partner of choice.','メジャーとのパートナーシップと、世界の販売網',size=36)
 b+=o
 b+=para(R,yy+2,W,'資源業界では、良い案件があっても単独では規模が大きすぎることが少なくありません。そのとき「三菱に声をかけよう」と思われる存在であること。BHP、Rio Tinto、Anglo Americanをはじめとする業界最大手とJVを組み、単なる共同出資者に留まらず、人材派遣・ガバナンス参画・総合力で事業価値の最大化に貢献してきました。')
-py=yy+60
+py=yy+76
 four=[('Cultural affinity','資源メジャーとの企業文化的親和性','短期の成果を求める投資家とは一線を画す、中長期の視座。'),('JV management','資源投資経験に裏打ちされたJV経営力','実質的な経営貢献と、高い目利き力。'),('Financial strength','事業ポートフォリオを活かした健全な財務基盤','リスクシェアリングと制度金融のファシリテーション。'),('Deep insight','マクロ環境とバリューチェーンへの深い知見','国・地域の拠点と幅広い産業接点からの知見。')]
 for i,(e,j,d_) in enumerate(four):
-    x=R+(i%2)*262; y=py+(i//2)*62
+    x=R+(i%2)*262; y=py+(i//2)*74
     b+=T(x,y,f'0{i+1}',None,'nb','font-size:20px;color:'+BR)+T(x+32,y+1,e,None,'l','font-size:7.4px;font-weight:600')+T(x+32,y+12,j,215,'hs','font-size:7.6px')+T(x+32,y+26,d_,215,'s')
 # network map
-ny=py+136
+ny=py+164
 b+=T(R,ny,'TRADING NETWORK',None,'k')+T(R+108,ny,'RtM＝Resource to Market｜10拠点の販売網',None,'kj')
-MW=330; MH=MW*996/2600; mx,my=R-6,ny+16
+MW=370; MH=MW*996/2600; mx,my=R-6,ny+16
 b+=IMG(mx,my,MW,MH,'v8/flat_std.png',fmt='PNG',light=.6,mx=1400)
 P=lambda lon,lat:(mx+(lon+170)/360*MW,my+(80-lat)/138*MH)
 offs=[(103.8,1.3),(139.7,35.7),(77.2,28.6),(121.5,31.2),(-77.0,40.4),(-0.1,51.5),(55.3,25.2),(106.8,-6.2),(100.5,13.7),(-70.65,-33.45)]
@@ -276,18 +276,18 @@ for lo,la in offs[1:]:
 for lo,la in offs: x,y=P(lo,la); o+=f'<circle cx="{x:.1f}" cy="{y:.1f}" r="2.6" fill="{NV}" stroke="#fff" stroke-width=".7"/>'
 b+=S(o)
 b+=T(R,my+MH+4,'Singapore（拠点集約）・Japan・India・China・USA・UK・UAE・Indonesia・Thailand・Chile',330,'s')
-nx=R+350
+nx=R+390
 for i,(n,u,j) in enumerate([('15','industries','業界'),('50','countries','カ国'),('~1,000','customers','社の販売先')]):
-    y=ny+16+i*40; b+=rule(nx,y,165,INK,1)+T(nx,y+6,n,None,'nb','font-size:24px')+T(nx+(len(n)*12+10),y+16,f'{u.upper()}　{j}',None,'l','font-size:5.8px;color:'+G2)
-zy=ny+16+MH+30
+    y=ny+20+i*48; b+=rule(nx,y,125,INK,1)+T(nx,y+6,n,None,'nb','font-size:24px')+T(nx,y+33,f'{u.upper()}　{j}',None,'l','font-size:5.8px;color:'+G2)
+zy=ny+16+MH+40
 b+=rule(R,zy,W,INK,1)
 b+=T(R,zy+10,'JOINT VENTURES',None,'k')+T(R+92,zy+10,'業界最大手とのJV実績',None,'kj')
 for i,n in enumerate(['BHP','Rio Tinto','Anglo American']): b+=T(R+i*120,zy+26,n,None,'nb','font-size:17px')
 b+=T(R+372,zy+26,'他社ロゴは使用せず<br>社名テキストで表記',None,'s')
-vy2=zy+60
+vy2=zy+70
 b+=T(R,vy2,'WHY PARTNERS VALUE US',None,'k')+T(R+140,vy2,'パートナーに評価される理由',None,'kj')
 for i,(e,j,d_) in enumerate([('Long-term view','中長期的な視座','資源事業は長期にわたる。短期的リターンを求める投資家とは一線を画す。'),('Risk sharing','リスクシェアリング','リスクの高い案件ほど、資金面の分担を担保する。'),('Integrated strength','総合力','幅広い産業接点を通じ、多様なバリューチェーンに知見を提供する。')]):
-    x=R+i*176; b+=A(x,vy2+16,f'<div style="font-family:IN;font-weight:600;font-size:5.6px;letter-spacing:1.2px;color:{BR}">{e.upper()}</div><div class="hs" style="font-size:8.6px;font-weight:700;margin-top:2px">{j}</div><div class="s" style="margin-top:3px">{d_}</div>',164,'',f'height:62px;padding:8px 10px;background:{PAN}')
+    x=R+i*176; b+=A(x,vy2+16,f'<div style="font-family:IN;font-weight:600;font-size:5.6px;letter-spacing:1.2px;color:{BR}">{e.upper()}</div><div class="hs" style="font-size:8.6px;font-weight:700;margin-top:2px">{j}</div><div class="s" style="margin-top:3px">{d_}</div>',164,'',f'height:72px;padding:10px 12px;background:{PAN}')
 b=OUT(330,8,'03')+OUT(930,8,'04')+b+BAND(595,0,595,26,'brush_b')
 pages.append(spread(b,8,9,'動画06 From Resources to Value。その他資源を6つのカードで（案件名と地域）。銅の品位の変化（1%→20–30%→99.99%）の上に、技術投資（CiDRA・Jetti・DESCycle・Triland）を配置。','動画07 Global Partnerships。Partner of Choiceの理由（本文）、4つの強み、RtMの販売網（シンガポール集約の10拠点）とエビデンス数値。'))
 
