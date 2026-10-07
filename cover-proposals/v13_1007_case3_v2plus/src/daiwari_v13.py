@@ -95,7 +95,7 @@ toc=[('01','Who We Are'),('02','Our Strengths'),('03','Coal &amp; Copper'),('04'
 b+=T(R+330,590,'CONTENTS',None,'k')
 for i,(n,e) in enumerate(toc):
     y=606+i*21; b+=rule(R+330,y,185)+T(R+330,y+6,n,None,'l','color:'+BR)+T(R+350,y+6,e,None,'l')+T(R+495,y+6,f'P.{[4,5,6,8,9,10][i]:02d}',None,'fo','font-size:5.4px')
-b+=BAND(0,402,1190,28)
+b+=BAND(0,824,1190,18)
 pages.append(spread(b,2,3,'動画01 OPENING。地球儀は使わず、暮らしと金属の写真を見開きで1枚のモザイクに（左＝暮らし、右＝それを支える金属）。キャッチコピー＋需要と供給のギャップを概念図で。','コアメッセージ（英・和）全文と目次。写真の帯が見開きをつなぎ、下段は左右で「問い」と「答え」の関係に。鉄道・スマホは素材待ち。'))
 
 # ============ P04-05  WHO WE ARE / OUR STRENGTHS（+歩みを見開きで） ============
@@ -156,7 +156,7 @@ for i,(yr,t,d_) in enumerate(eras):
     o+=f'<circle cx="{x+4}" cy="{jy+46}" r="4" fill="{BR if i in (2,3) else INK}"/>'
     b+=T(x,jy+18,yr,None,'nb','font-size:18px')+T(x,jy+58,t,210,'hs','font-size:8.2px')+T(x,jy+74,d_,205,'b','font-size:6.6px;line-height:1.7')
 b+=S(o)
-b=OUT(436,6,'01')+OUT(1000,6,'02')+b+BAND(0,602,1190,24,'brush_a')
+b=OUT(436,6,'01')+OUT(1000,6,'02')+b+BAND(0,824,1190,18,'brush_a')
 pages.append(spread(b,4,5,'動画02 Who we are。三菱商事→金属資源G→組織（投資2本部＋トレーディング1本部、関係会社）を1ページに。ミッションはパネルで強調。','動画03 Our Strengths。【強調】一級資産の地図と数字3つ。下段の「歩み（先見性）」は見開き全幅の帯で左右をつなぐ（参考資料P34の意向）。'))
 
 # ============ P06-07  COAL & COPPER（強調） ============
@@ -219,7 +219,7 @@ b+=rule(L,mb-8,1190-2*L,INK,.8)
 b+=T(L,mb,'MARKET STRUCTURE',None,'k')+T(L+110,mb,'上位5社のシェア',None,'kj')
 for x0,lab,v,t in [(L,'Metallurgical coal',80,'上位5社で約80%｜寡占度が高く、供給は漸減'),(R,'Copper',25,'上位5社で約25%｜寡占化が進まず、再編の機運')]:
     b+=T(x0,mb+16,lab,None,'l','font-size:7px')+A(x0+100,mb+16,'',400,'',f'height:10px;background:{G4}')+A(x0+100,mb+16,'',400*v/100,'',f'height:10px;background:{INK}')+T(x0+100+400*v/100+6,mb+15,f'{v}%',None,'nb','font-size:10px')+T(x0+100,mb+30,t,None,'s')
-b+=BAND(0,330,1190,18)
+b+=BAND(0,824,1190,18)
 pages.append(spread(b,6,7,'動画04 Coking Coal。【強調】写真の上に大きな数字。品位→鉄→需要→社会の4段ロジック、出資構成図、基本データ表。','動画05 Copper。【強調】参画年のタイムライン（先行して一級資産を確保）と生産量ランキング（当社のみ色）。最下段の「市場構造」バーが原料炭と銅を見開きで比較する。'))
 
 # ============ P08-09  FROM RESOURCES TO VALUE / GLOBAL PARTNERSHIPS ============
