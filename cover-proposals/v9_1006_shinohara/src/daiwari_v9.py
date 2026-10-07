@@ -21,8 +21,9 @@ def flow(d,col=GOLD,sw=.75,op=.85,dots=()):
 pages=[]
 
 # =================== P02-03 ===================
-FG=uri('v9/fg_front.png',1600,'PNG')
-b=f'<img class="a" src="{FG}" style="left:-190px;top:120px;width:800px;height:800px">'
+FG=uri('v9/globe_new.png',1800,'PNG')
+_s=640/875
+b=f'<img class="a" src="{FG}" style="left:{190-755*_s:.1f}px;top:{500-515*_s:.1f}px;width:{1536*_s:.1f}px;height:{1024*_s:.1f}px">'
 b+=A(L,58,'MITSUBISHI CORPORATION　MINERAL RESOURCES GROUP',None,'lab')
 b+=A(R,150,'Strength to Hold.<br>Power to Connect.',470,'en','font-size:40px;line-height:1.1')
 b+=A(R,256,'',26,'',f'border-top:1px solid {RED}')+A(R,270,'コアメッセージ（英文主体・和文は確認用）',None,'labj')
@@ -33,9 +34,7 @@ for i,(n,e,j,p) in enumerate(toc):
     y=614+i*44
     b+=A(R,y,'',W-40,'',f'border-top:.5px solid {HAIR}')+A(R,y+9,n,None,'num','font-size:18px;color:'+GOLD)
     b+=A(R+44,y+8,e,None,'','font-size:11px;font-weight:300')+A(R+44,y+24,j,None,'sm')+A(R+W-60,y+10,'P.'+p,None,'fo')
-fr=(f'<ellipse cx="250" cy="575" rx="380" ry="110" transform="rotate(-18 250 575)" fill="none" stroke="{GOLD}" stroke-width=".7" opacity=".8"/>'
-    +flow('M-40,640 C260,560 700,520 1000,505 S1150,500 1210,498',GOLDL,.7,1,[(1000,505)])
-    +flow('M-40,700 C300,640 640,580 980,540',GOLD,.7,.7,[(560,595)]))
+fr=flow('M624,544 C800,512 1000,504 1210,498',GOLDL,.7,1,[(1000,504)])
 b+=svg(0,0,1190,842,fr)
 pages.append(spread(b,2,3,'導入。表紙の地球儀を大きく扉に。軌道の輪がノドを越えて右ページへ伸び、コアメッセージと目次の間を通る。','コアメッセージと目次のみ。軌道線は文字に重ならない高さで横断させ、右端から次の見開きへ抜ける。'))
 
@@ -258,9 +257,9 @@ b+=A(R,cy+124,'サプライチェーン確保の重要性と、川上資源へ�
 b+=SEC(R,cy+170,'OUR COMMITMENT','私たちの約束',150)
 b+=A(R,cy+190,'“To contribute to a better society by providing a stable supply of high-quality mineral resources that society needs, in a sustainable way.”',W-20,'en','font-size:15px;line-height:1.45')
 b+=A(R,cy+240,'「社会が必要とする良質な金属資源を、持続可能な形で安定供給することで、より良い社会の実現に寄与する」',W,'sm')
-FB=uri('v9/fg_back.png',900,'PNG')
-b+=f'<img class="a" src="{FB}" style="left:{R+290}px;top:640px;width:300px;height:300px">'
-b+=svg(0,0,1190,842,f'<ellipse cx="{R+420}" cy="760" rx="210" ry="34" transform="rotate(-8 {R+420} 760)" fill="none" stroke="{GOLD}" stroke-width=".7"/>')
+FB=uri('v9/globe_new.png',1000,'PNG')
+_s=300/875
+b+=f'<img class="a" src="{FB}" style="left:{R+440-755*_s:.1f}px;top:{790-515*_s:.1f}px;width:{1536*_s:.1f}px;height:{1024*_s:.1f}px">'
 b+=SEC(R,690,'CONTACT','お問い合わせ',90)+A(R,710,'Mitsubishi Corporation　Mineral Resources Group<br>2-3-1 Marunouchi, Chiyoda-ku, Tokyo 100-8086, Japan<br>www.mitsubishicorp.com',260,'','font-size:7px;line-height:1.7;font-weight:300;color:'+SUB)
 pages.append(spread(b,10,11,'写真を丸い「レンズ」で切り抜き、金の軌道が周回。本文を追加。JV実績のラベルを拡大し、「パートナーに評価される理由」（中長期的な視座・リスクシェアリング・総合力）を復活。','外部環境の3つの変化を3つのガラス球に。最後に日本側の地球儀が現れ、軌道が裏表紙へ抜けて冊子を閉じる。',orb))
 
