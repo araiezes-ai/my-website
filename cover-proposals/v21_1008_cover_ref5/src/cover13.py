@@ -55,20 +55,29 @@ def supel(cx,cy,rx,ry,n=2.7,N=120):
         a=2*math.pi*t/N; c,sn=math.cos(a),math.sin(a)
         pts.append((cx+rx*math.copysign(abs(c)**(2/n),c), cy+ry*math.copysign(abs(sn)**(2/n),sn)))
     return 'M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)+'Z'
-def P5(c1,c2):  # 積み重ねる力：細線の石。最上段＝次の一段だけ色を変える
-    o=''; cx=300
-    st=[(186,108),(146,86),(104,64)]; y=764; cs=[]
-    for rx,ry in st:
-        cy=y-ry; cs.append((cy,rx,ry)); y=cy-ry+20
-    for k,(cy,rx,ry) in enumerate(cs):
-        if k>0:
-            pcy,prx,pry=cs[k-1]; o+=f'<path d="{supel(cx,pcy-pry+14,rx*0.86,11,2.0)}" fill="{c2}"/>'
-        d=supel(cx,cy,rx,ry,2.25)
-        cd,cu=clip(d); o+=cd+f'<path d="{d}" fill="#fff"/><g clip-path="{cu}">'
-        col=c1 if k==2 else c2
-        yy=cy-ry
-        while yy<cy+ry: o+=f'<line x1="{cx-rx}" y1="{yy:.1f}" x2="{cx+rx}" y2="{yy:.1f}" stroke="{col}" stroke-width=".8"/>'; yy+=3.0
-        o+='</g>'
+def P5(c1,c2):  # 積み重ねる力：経線状の細線で描く三つの石。最上段＝次の一段だけ色を変える
+    cx=298; o=''
+    def hw(dy,rx,ry,n=2.2):
+        t=abs(dy)/ry
+        return 0 if t>=1 else rx*(1-t**n)**(1/n)
+    def stone(cy,rx,ry,cut,col,N=96):
+        out=''; y0=cy-ry*0.93; y1=min(cy+ry*0.93,cut)
+        for k in range(N+1):
+            ph=-math.pi/2+math.pi*k/N; sv=math.sin(ph)
+            pts=[]; steps=60
+            for q in range(steps+1):
+                y=y0+(y1-y0)*q/steps; pts.append((cx+sv*hw(y-cy,rx,ry),y))
+            out+='<path d="M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)+f'" fill="none" stroke="{col}" stroke-width=".55"/>'
+        return out
+    def bowl(top,w,d):
+        pts=[(cx-w,top)]+[(cx+w*math.cos(a),top+d*math.sin(a)) for a in [math.pi-math.pi*q/60 for q in range(61)]]
+        pts=[(cx-w,top)]+[(cx-w*math.cos(math.pi*q/60) ,top+d*math.sin(math.pi*q/60)**0.6) for q in range(61)]
+        return '<path d="M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)+f'Z" fill="{c2}"/>'
+    o+=stone(649,214,122,9999,c2)
+    o+=bowl(536,148,44)
+    o+=stone(481,168,100,536,c2)
+    o+=bowl(390,106,36)
+    o+=stone(339,120,92,390,c1)
     return o
 M=[('1','連なる半円','つなぐ力',P1),('2','器と資源','持つ力',P2),('3','四分円の同心線','届ける力',P3),('4','二つのU','両輪',P4),('5','積み石','積み重ねる力',P5)]
 PAIRS=[('a',CU,GP),('b',VR,GP)]
