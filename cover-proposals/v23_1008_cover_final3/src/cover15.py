@@ -22,11 +22,11 @@ def head(font,acc):
                 f'<div class="a" style="left:48px;top:200px;font:500 10.5px CG;letter-spacing:3.4px;color:#6b7178">CORPORATE PROFILE</div>')
 def pg(svg,font,acc,bg=False):
     b=('<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#eceef0"/></linearGradient></defs><rect width="595" height="842" fill="url(#bg)"/>') if bg else ''
-    foot='<line x1="48" y1="784" x2="547" y2="784" stroke="#9aa0a6" stroke-width=".5"/>'+logo(400,806)
+    foot='<rect x="0" y="770" width="600" height="90" fill="#fff"/><line x1="48" y1="784" x2="547" y2="784" stroke="#9aa0a6" stroke-width=".5"/>'+logo(400,806)
     return f'<div class="pg"><svg class="a" style="left:0;top:0" width="595" height="842" viewBox="0 0 595 842">{b}{svg}{foot}</svg>{head(font,acc)}</div>'
 # A-b：両輪の球。二つの球の中心を紙面の光学的中心（やや上）へ、左右対称・紙幅の8割
 def SPH(c1,c2):
-    r=158; cy=508; a=(212,cy); b=(383,cy)
+    r=215; a=(205,640); b=(440,500)   # 左下→右上へ上がる配置。左は下端、右は右端で断ち落とす
     o=sph_v(*a,r,c2)+sph_h(*b,r,c2)
     o+=f'<clipPath id="ov"><circle cx="{b[0]}" cy="{b[1]}" r="{r}"/></clipPath><clipPath id="ov2"><circle cx="{a[0]}" cy="{a[1]}" r="{r}"/></clipPath>'
     o+=f'<g clip-path="url(#ov)"><g clip-path="url(#ov2)"><rect x="0" y="0" width="595" height="842" fill="#fff"/>'+sph_v(*a,r,c1)+sph_h(*b,r,c1)+'</g></g>'
