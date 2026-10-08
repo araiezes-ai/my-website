@@ -51,11 +51,21 @@ def ARCS(c1,c2):
         o+=f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="{c2}" stroke-width="{w:.2f}" opacity="{op:.2f}"/>'
     o+=f'<circle cx="{cx}" cy="{cy}" r="22" fill="{c1}"/>'
     return o
+def RIP(cx,cy,r0,pitch,N,c1,c2,dot):
+    o=''
+    for k in range(N):
+        r=r0+k*pitch; t=k/(N-1)
+        o+=f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="{c2}" stroke-width="{2.0-1.45*t:.2f}" opacity="{1-.55*t:.2f}"/>'
+    return o+f'<circle cx="{cx}" cy="{cy}" r="{dot}" fill="{c1}"/>'
+def ARCS_A(c1,c2):  # 中心を背の下端に。表紙・裏表紙それぞれに1/4ずつ、見開きで半円
+    return '<clipPath id="ha"><rect x="0" y="0" width="1190" height="772"/></clipPath><g clip-path="url(#ha)">'+RIP(595,772,40,10,48,c1,c2,40)+'</g>'
+def ARCS_B(c1,c2):  # 円を大きく、表紙側に置き、直径の1/4が背をまたいで裏表紙へ
+    return RIP(722,516,30,9.0,26,c1,c2,22)
 S=[(spread(SPH2(CU,GP),'CG',CU),'1_A-b_両輪の球'),
    (spread(BANDS2('2'),'JO',RED,True),'2_A-2_二本の帯_ネイビー'),
    (spread(BANDS2('1'),'JO',CW['1']['t'][0][1],True),'3_A-2_二本の帯_カッパー'),
    (spread(BARS3S(),'JO',RED,True),'4_C-2_三本の帯'),
-   (spread(ARCS(CU,GP),'CG',CU),'5_届ける力_広がる円')]
+   (spread(ARCS_A(CU,GP),'CG',CU),'5a_届ける力_背で四分円'),(spread(ARCS_B(CU,GP),'CG',CU),'5b_届ける力_大きい円')]
 css=CSS2.replace('@page{size:210mm 297mm;margin:0}','@page{size:420mm 297mm;margin:0}')
 open('cover16.html','w').write('<!doctype html><meta charset=utf-8><style>'+css+'</style>'+''.join(p for p,_ in S))
 import json; json.dump([n for _,n in S],open('cover16_names.json','w'),ensure_ascii=False)
