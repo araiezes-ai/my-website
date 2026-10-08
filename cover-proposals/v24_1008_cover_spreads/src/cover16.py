@@ -59,7 +59,7 @@ def RIP(cx,cy,r0,pitch,N,c1,c2,dot):
         o+=f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="{c2}" stroke-width="{2.0-1.45*t:.2f}" opacity="{1-.55*t:.2f}"/>'
     return o+f'<circle cx="{cx}" cy="{cy}" r="{dot}" fill="{c1}"/>'
 def ARCS_A(c1,c2):  # 中心を背の下端に。表紙・裏表紙それぞれに1/4ずつ、見開きで半円
-    return '<clipPath id="ha"><rect x="0" y="0" width="1190" height="772"/></clipPath><g clip-path="url(#ha)">'+RIP(595,772,40,10,48,c1,c2,40)+'</g>'
+    return '<clipPath id="ha"><rect x="0" y="0" width="1190" height="772"/></clipPath><g clip-path="url(#ha)">'+RIP(595,772,84,8.6,30,c1,c2,64)+'</g>'
 def ARCS_B(c1,c2):  # 円を大きく、表紙側に置き、直径の1/4が背をまたいで裏表紙へ
     return RIP(722,516,30,9.0,26,c1,c2,22)
 S=[(spread(SPH2(CU,GP),'CG',CU),'1_A-b_両輪の球'),
