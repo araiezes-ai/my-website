@@ -12,21 +12,20 @@ def page3(svg,c1):
 CID=[0]
 def clip(d):
     CID[0]+=1; return f'<clipPath id="k{CID[0]}"><path d="{d}"/></clipPath>', f'url(#k{CID[0]})'
-# 1 連なる半円：つなぐ（バトンを渡すように、形を変えながら次へ）
+# 1 連なる半円：つなぐ力（白地版。最後の一つだけ色）
 def P1(c1,c2):
-    o=f'<rect x="0" y="236" width="530" height="520" fill="{c1}"/>'
-    x=40; R=210; cy=496; ds=[]
+    o=''; x=48; R=200; cy=500; ds=[]
     for k in range(6):
-        ds.append(f'<path d="M{x},{cy-R} A{R},{R} 0 0 1 {x},{cy+R}Z" fill="{c2}" stroke="{c1}" stroke-width="5"/>')
+        col=c1 if k==5 else c2
+        ds.append(f'<path d="M{x},{cy-R} A{R},{R} 0 0 1 {x},{cy+R}Z" fill="{col}" stroke="#fff" stroke-width="4"/>')
         x+=R*0.55; R*=0.8
-    o+=''.join(reversed(ds))
-    return o
-# 2 傾いた四角と円：持つ力（資産が資源を抱え、そこから新しい価値＝点が生まれる）
+    return o+''.join(reversed(ds))
+# 2 器と資源：持つ力（器に半分沈んだ円。下半分＝いま持つ資源、上半分の線＝これから持つ資源）
 def P2(c1,c2):
-    cx,cy,s=330,520,380
-    o=f'<g transform="rotate(-11 {cx} {cy})"><rect x="{cx-s/2}" y="{cy-s/2}" width="{s}" height="{s}" fill="{c2}"/></g>'
-    o+=f'<circle cx="{cx+38}" cy="{cy+66}" r="112" fill="#fff"/>'
-    o+=f'<circle cx="{cx-150}" cy="{cy+182}" r="22" fill="{c1}"/>'
+    top=572; cx=300; r=104
+    o=f'<rect x="48" y="{top}" width="560" height="212" fill="{c2}"/>'
+    o+=f'<path d="M{cx-r},{top} A{r},{r} 0 0 0 {cx+r},{top}Z" fill="{c1}"/>'
+    o+=f'<path d="M{cx-r},{top} A{r},{r} 0 0 1 {cx+r},{top}" fill="none" stroke="{c2}" stroke-width="2.4"/>'
     return o
 # 3 四分円の同心線：届ける力（一つの源から、世界へ広がる供給）
 def P3(c1,c2):
@@ -50,21 +49,28 @@ def P4(c1,c2):
     o+=f'<circle cx="{cm}" cy="{Y0+80}" r="20" fill="{c1}"/>'
     return o
 # 5 積み石：積み重ねる力（長期の資産を、一段ずつ積み上げてきた）
-def P5(c1,c2):
+def supel(cx,cy,rx,ry,n=2.7,N=120):
+    pts=[]
+    for t in range(N):
+        a=2*math.pi*t/N; c,sn=math.cos(a),math.sin(a)
+        pts.append((cx+rx*math.copysign(abs(c)**(2/n),c), cy+ry*math.copysign(abs(sn)**(2/n),sn)))
+    return 'M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)+'Z'
+def P5(c1,c2):  # 積み重ねる力：細線の石。最上段＝次の一段だけ色を変える
     o=''; cx=300
-    st=[(200,104),(158,84),(112,62)]; y=760; cs=[]
+    st=[(186,108),(146,86),(104,64)]; y=764; cs=[]
     for rx,ry in st:
-        cy=y-ry; cs.append((cy,rx,ry)); y=cy-ry+22
+        cy=y-ry; cs.append((cy,rx,ry)); y=cy-ry+20
     for k,(cy,rx,ry) in enumerate(cs):
         if k>0:
-            pcy,prx,pry=cs[k-1]; o+=f'<ellipse cx="{cx}" cy="{pcy-pry+16}" rx="{rx*0.92:.0f}" ry="18" fill="{c2}"/>'
-        d=f'M{cx-rx},{cy} A{rx},{ry} 0 1 0 {cx+rx},{cy} A{rx},{ry} 0 1 0 {cx-rx},{cy}Z'
+            pcy,prx,pry=cs[k-1]; o+=f'<path d="{supel(cx,pcy-pry+14,rx*0.86,11,2.0)}" fill="{c2}"/>'
+        d=supel(cx,cy,rx,ry,2.25)
         cd,cu=clip(d); o+=cd+f'<path d="{d}" fill="#fff"/><g clip-path="{cu}">'
+        col=c1 if k==2 else c2
         yy=cy-ry
-        while yy<cy+ry: o+=f'<line x1="{cx-rx}" y1="{yy:.1f}" x2="{cx+rx}" y2="{yy:.1f}" stroke="{c1}" stroke-width="2.4"/>'; yy+=4.8
+        while yy<cy+ry: o+=f'<line x1="{cx-rx}" y1="{yy:.1f}" x2="{cx+rx}" y2="{yy:.1f}" stroke="{col}" stroke-width=".8"/>'; yy+=3.0
         o+='</g>'
     return o
-M=[('1','連なる半円','つなぐ力',P1),('2','傾いた四角と円','持つ力',P2),('3','四分円の同心線','届ける力',P3),('4','二つのU','両輪',P4),('5','積み石','積み重ねる力',P5)]
+M=[('1','連なる半円','つなぐ力',P1),('2','器と資源','持つ力',P2),('3','四分円の同心線','届ける力',P3),('4','二つのU','両輪',P4),('5','積み石','積み重ねる力',P5)]
 PAIRS=[('a',CU,GP),('b',VR,GP)]
 pages=[]
 for m,*_,f in M:
