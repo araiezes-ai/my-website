@@ -11,15 +11,15 @@ CSS2=CSS+f"""@font-face{{font-family:JO;font-weight:300;src:url(data:font/woff2;
 CU='#B4693E'; GP='#2E3136'; NAVY='#1f2f4a'
 def head(font,acc):
     if font=='JO':  # 幾何学サンセリフ（会社案内2026の系譜）
-        return (f'<div class="a" style="left:48px;top:64px;font:400 9.5px JO;letter-spacing:3.6px;color:{INK}">MITSUBISHI CORPORATION</div>'
+        return (f'<div class="a" style="left:48px;top:60px;font:400 12px JO;letter-spacing:4px;color:{INK}">MITSUBISHI CORPORATION</div>'
                 f'<div class="a" style="left:48px;top:96px;width:40px;border-top:1.4px solid {acc}"></div>'
                 f'<div class="a" style="left:48px;top:112px;font:300 31px/1.16 JO;letter-spacing:5.5px;color:{INK}">MINERAL<br>RESOURCES</div>'
-                f'<div class="a" style="left:48px;top:196px;font:400 9.5px JO;letter-spacing:3.6px;color:#6b7178">CORPORATE PROFILE</div>')
+                f'<div class="a" style="left:48px;top:198px;font:400 12px JO;letter-spacing:4px;color:#6b7178">CORPORATE PROFILE</div>')
     else:           # クラシックなセリフ大文字（統合報告書・Web英字見出しの系譜）
-        return (f'<div class="a" style="left:48px;top:64px;font:500 10.5px CG;letter-spacing:3.4px;color:{INK}">MITSUBISHI CORPORATION</div>'
+        return (f'<div class="a" style="left:48px;top:58px;font:500 13.5px CG;letter-spacing:3.8px;color:{INK}">MITSUBISHI CORPORATION</div>'
                 f'<div class="a" style="left:48px;top:96px;width:40px;border-top:1.2px solid {acc}"></div>'
                 f'<div class="a" style="left:46px;top:108px;font:300 38px/1.08 CG;letter-spacing:4.5px;color:{INK}">MINERAL<br>RESOURCES</div>'
-                f'<div class="a" style="left:48px;top:200px;font:500 10.5px CG;letter-spacing:3.4px;color:#6b7178">CORPORATE PROFILE</div>')
+                f'<div class="a" style="left:48px;top:202px;font:500 13.5px CG;letter-spacing:3.8px;color:#6b7178">CORPORATE PROFILE</div>')
 def pg(svg,font,acc,bg=False):
     b=('<defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#eceef0"/></linearGradient></defs><rect width="595" height="842" fill="url(#bg)"/>') if bg else ''
     foot='<rect x="0" y="770" width="600" height="90" fill="#fff"/><line x1="48" y1="784" x2="547" y2="784" stroke="#9aa0a6" stroke-width=".5"/>'+logo(400,806)

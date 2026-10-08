@@ -8,9 +8,9 @@ def spread(svg,font,acc,bg=False):
     b=('<defs><linearGradient id="bgs" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fff"/><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#eceef0"/></linearGradient></defs><rect width="1190" height="842" fill="url(#bgs)"/>') if bg else '<rect width="1190" height="842" fill="#fff"/>'
     foot=('<rect x="0" y="772" width="1190" height="70" fill="#fff"/>'
           '<line x1="48" y1="784" x2="547" y2="784" stroke="#9aa0a6" stroke-width=".5"/><line x1="643" y1="784" x2="1142" y2="784" stroke="#9aa0a6" stroke-width=".5"/>'
-          +logo(995,806)+logo(48,806))
+          +logo(595+297.5-66,808)+logo(297.5-66,808))
     ff='JO' if font=='JO' else 'CG'; fz='7px' if font=='JO' else '8px'
-    back=f'<div class="a" style="left:48px;top:820px;font:400 {fz} {ff};letter-spacing:1.2px;color:#6b7178;white-space:nowrap">{ADDR}</div>'
+    back=f'<div class="a" style="left:0;width:595px;text-align:center;top:822px;font:400 {fz} {ff};letter-spacing:1.2px;color:#6b7178;white-space:nowrap">{ADDR}</div>'
     return (f'<div class="pg" style="width:1190px"><svg class="a" style="left:0;top:0" width="1190" height="842" viewBox="0 0 1190 842">{b}{svg}{foot}</svg>'
             f'<div class="a" style="left:595px;top:0;width:595px;height:842px">{head(font,acc)}</div>{back}</div>')
 # ---- A-b 両輪の球：縦の球は背（ノド）にまたがり、裏表紙から表紙へ続く
@@ -44,13 +44,12 @@ def BARS3S():
     return o
 # ---- 届ける力：表紙右下の一点（源）から、線が裏表紙まで広がる。外へ行くほど細く淡く
 def ARCS(c1,c2):
-    ox,oy=1143,770; o='<clipPath id="hz"><rect x="0" y="250" width="1190" height="600"/></clipPath><g clip-path="url(#hz)">'; N=88
+    cx,cy=700,512; o=""; N=25
     for k in range(N):
-        r=64+k*12.6; t=k/(N-1)
-        w=2.0-1.45*t; op=1-.62*t
-        o+=f'<path d="M{ox-r:.1f},{oy} A{r:.1f},{r:.1f} 0 0 1 {ox},{oy-r:.1f}" fill="none" stroke="{c2}" stroke-width="{w:.2f}" opacity="{op:.2f}"/>'
-    o+='</g>'
-    o+=f'<path d="M{ox-50},{oy} A50,50 0 0 1 {ox},{oy-50} L{ox},{oy}Z" fill="{c1}"/>'
+        r=34+k*8.2; t=k/(N-1)
+        w=2.0-1.45*t; op=1-.55*t
+        o+=f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="{c2}" stroke-width="{w:.2f}" opacity="{op:.2f}"/>'
+    o+=f'<circle cx="{cx}" cy="{cy}" r="22" fill="{c1}"/>'
     return o
 S=[(spread(SPH2(CU,GP),'CG',CU),'1_A-b_両輪の球'),
    (spread(BANDS2('2'),'JO',RED,True),'2_A-2_二本の帯_ネイビー'),
