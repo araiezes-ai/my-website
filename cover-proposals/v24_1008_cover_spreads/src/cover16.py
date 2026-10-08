@@ -15,11 +15,11 @@ def spread(svg,font,acc,bg=False):
             f'<div class="a" style="left:595px;top:0;width:595px;height:842px">{head(font,acc)}</div>{back}</div>')
 # ---- A-b 両輪の球：縦の球は背（ノド）にまたがり、裏表紙から表紙へ続く
 def SPH2(c1,c2):  # 表紙中央に小さく二つの球。裏表紙の中央にはカッパーの○一つ（両輪がかみ合って生まれた価値）
-    r=94; cy=488; a=(595+297.5-68,cy); b=(595+297.5+68,cy)
-    o=sph_v(*a,r,c2,N=60)+sph_h(*b,r,c2,N=60)
+    r=82; cy=488; a=(595+297.5-59,cy); b=(595+297.5+59,cy)
+    o=sph_v(*a,r,c2,N=54)+sph_h(*b,r,c2,N=54)
     o+=f'<clipPath id="ov"><circle cx="{b[0]}" cy="{b[1]}" r="{r}"/></clipPath><clipPath id="ov2"><circle cx="{a[0]}" cy="{a[1]}" r="{r}"/></clipPath>'
-    o+=f'<g clip-path="url(#ov)"><g clip-path="url(#ov2)"><rect x="0" y="0" width="1190" height="842" fill="#fff"/>'+sph_v(*a,r,c1,N=60)+sph_h(*b,r,c1,N=60)+'</g></g>'
-    o+=sph_v(297.5,cy,40,c1,N=28,w=.55)+sph_h(297.5,cy,40,c1,N=28,w=.55)   # 裏表紙：縦横の線が編まれたカッパーの球
+    o+=f'<g clip-path="url(#ov)"><g clip-path="url(#ov2)"><rect x="0" y="0" width="1190" height="842" fill="#fff"/>'+sph_v(*a,r,c1,N=54)+sph_h(*b,r,c1,N=54)+'</g></g>'
+    o+=sph_v(297.5,cy,22,c1,N=16,w=.5)+sph_h(297.5,cy,22,c1,N=16,w=.5)   # 裏表紙：縦横の線が編まれたカッパーの球
     return o
 # ---- A-2 二本の帯：裏表紙では一本（B）だけが流れ、表紙で二本目が加わり重なる
 def BANDS2(cw):
@@ -59,7 +59,7 @@ def RIP(cx,cy,r0,pitch,N,c1,c2,dot):
         o+=f'<circle cx="{cx}" cy="{cy}" r="{r:.1f}" fill="none" stroke="{c2}" stroke-width="{2.0-1.45*t:.2f}" opacity="{1-.55*t:.2f}"/>'
     return o+f'<circle cx="{cx}" cy="{cy}" r="{dot}" fill="{c1}"/>'
 def ARCS_A(c1,c2):  # 中心を背の下端に。表紙・裏表紙それぞれに1/4ずつ、見開きで半円
-    return '<clipPath id="ha"><rect x="0" y="0" width="1190" height="772"/></clipPath><g clip-path="url(#ha)">'+RIP(595,772,84,8.6,30,c1,c2,64)+'</g>'
+    return '<clipPath id="ha"><rect x="0" y="0" width="1190" height="772"/></clipPath><g clip-path="url(#ha)">'+RIP(595,772,40,10,45,c1,c2,40)+'</g>'
 def ARCS_B(c1,c2):  # 円を大きく、表紙側に置き、直径の1/4が背をまたいで裏表紙へ
     return RIP(722,516,30,9.0,26,c1,c2,22)
 S=[(spread(SPH2(CU,GP),'CG',CU),'1_A-b_両輪の球'),
