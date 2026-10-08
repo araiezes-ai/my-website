@@ -14,11 +14,12 @@ def spread(svg,font,acc,bg=False):
     return (f'<div class="pg" style="width:1190px"><svg class="a" style="left:0;top:0" width="1190" height="842" viewBox="0 0 1190 842">{b}{svg}{foot}</svg>'
             f'<div class="a" style="left:595px;top:0;width:595px;height:842px">{head(font,acc)}</div>{back}</div>')
 # ---- A-b 両輪の球：縦の球は背（ノド）にまたがり、裏表紙から表紙へ続く
-def SPH2(c1,c2):
-    r=250; a=(655,650); b=(975,470)
-    o=sph_v(*a,r,c2,N=96)+sph_h(*b,r,c2,N=96)
+def SPH2(c1,c2):  # 表紙中央に小さく二つの球。裏表紙の中央にはカッパーの○一つ（両輪がかみ合って生まれた価値）
+    r=118; cy=488; a=(595+297.5-86,cy); b=(595+297.5+86,cy)
+    o=sph_v(*a,r,c2,N=72)+sph_h(*b,r,c2,N=72)
     o+=f'<clipPath id="ov"><circle cx="{b[0]}" cy="{b[1]}" r="{r}"/></clipPath><clipPath id="ov2"><circle cx="{a[0]}" cy="{a[1]}" r="{r}"/></clipPath>'
-    o+=f'<g clip-path="url(#ov)"><g clip-path="url(#ov2)"><rect x="0" y="0" width="1190" height="842" fill="#fff"/>'+sph_v(*a,r,c1,N=96)+sph_h(*b,r,c1,N=96)+'</g></g>'
+    o+=f'<g clip-path="url(#ov)"><g clip-path="url(#ov2)"><rect x="0" y="0" width="1190" height="842" fill="#fff"/>'+sph_v(*a,r,c1,N=72)+sph_h(*b,r,c1,N=72)+'</g></g>'
+    o+=f'<circle cx="297.5" cy="{cy}" r="16" fill="{c1}"/>'
     return o
 # ---- A-2 二本の帯：裏表紙では一本（B）だけが流れ、表紙で二本目が加わり重なる
 def BANDS2(cw):
