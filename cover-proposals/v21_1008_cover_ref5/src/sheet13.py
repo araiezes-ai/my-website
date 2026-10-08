@@ -11,6 +11,6 @@ for i,(n,t,f,d) in enumerate(mot):
     x=gx+i*(cw+26)
     p+=f'<div class="a" style="left:{x}px;top:116px;width:{cw+10}px"><span style="font-size:18px;font-weight:300;color:#B4693E">{n}</span> <span class="b t">{t}</span> <span class="s">／{f}</span><div class="s" style="margin-top:3px">{d}</div></div>'
     for j in range(2):
-        p+=f'<div class="a cv" style="left:{x}px;top:{196+j*300}px"><img src="s13/cv-{i*2+j+1:02d}.png" style="width:{cw}px"></div>'
+        p+=f'<div class="a cv" style="left:{x}px;top:{212+j*300}px"><img src="s13/cv-{i*2+j+1:02d}.png" style="width:{cw}px"></div>'
 p+='</div>'
 open('sheet13.html','w').write(H+p)
