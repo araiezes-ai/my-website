@@ -86,7 +86,7 @@ for i,(k_,e,j,d_,col) in enumerate(cards):
     b+=T(x,672,d_,200,'b','font-size:7.2px;line-height:1.8')
 b+=LINE('M0,650 H1190')
 for i,(k_,e,j,d_,col) in enumerate(cards): b+=badge(L+i*232,641,k_,col,18)
-b+=rule(L,730,1110,G3)+T(L,744,'Not a miner. Not just a trader.',700,'dl','font-size:30px;color:'+G1)+T(R+180,752,'鉱山会社でも、純粋なトレーダーでもない。',400,'h','font-size:13px;text-align:right')
+b+=rule(L,730,1110,G3)+T(L,744,'Not a miner. Not just a trader.',700,'dl','font-size:30px;color:'+G1)+T(R+115,752,'鉱山会社でも、純粋なトレーダーでもない。',400,'h','font-size:13px;text-align:right')
 b+=BAND(0,824,1190,18)
 pages.append(spread(b,6,7,'',''))
 
