@@ -20,10 +20,18 @@ def band(xb,y0,y1,W,tip,orient,cap):
         else: pts=[BL,BR,TR,TL]
     d='M'+' L'.join(f'{x:.1f},{y:.1f}' for x,y in pts)+'Z'
     CID[0]+=1; c=f'bc{CID[0]}'
-    o=f'<clipPath id="{c}"><path d="{d}"/></clipPath><path d="{d}" fill="{MAIN}"/><g clip-path="url(#{c})">'
+    g=f'sh{CID[0]}'
+    o=(f'<defs><linearGradient id="{g}" gradientUnits="userSpaceOnUse" x1="0" y1="900" x2="595" y2="100">'
+       '<stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset=".42" stop-color="#fff" stop-opacity=".0"/>'
+       '<stop offset=".55" stop-color="#fff" stop-opacity=".22"/><stop offset=".68" stop-color="#fff" stop-opacity="0"/>'
+       '<stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient></defs>')
+    o+=f'<clipPath id="{c}"><path d="{d}"/></clipPath><path d="{d}" fill="{MAIN}"/><g clip-path="url(#{c})">'
     o+=f'<path d="{para(xb,y0,y1-200,13)}" fill="{DARK}"/>'                       # 片側の濃い縁
     if cap=='bot': o+=f'<path d="{para(xb,y0,y0-16,W+400)}" fill="{DARK}"/>'      # 下側の厚み
     if cap=='top' and not tip: o+=f'<path d="{para(xat(xb,y0,y1+20),y1+20,y1,W)}" fill="{DARK}"/>'
+    o+=f'<rect x="-200" y="-200" width="1000" height="1200" fill="url(#{g})"/>'     # 鋼板の光沢
+    ang=-56 if orient=='up' else 0
+    o+=brushed(d,ang,300+CID[0],bbox=(-400,-400,1000,1300),op=.30)               # ヘアラインの筋目
     return o+'</g>'
 def UPC(tip):   # 上昇：左から短・中・長、右の1本だけが上端へ突き抜ける
     o=''
