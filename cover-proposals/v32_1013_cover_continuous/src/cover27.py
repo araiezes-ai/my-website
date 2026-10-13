@@ -2,6 +2,7 @@
 import math
 exec(open('cover25.py').read().split('def UPM')[0])
 CID=[0]
+PA,PA_OP,PA_BL,PB='#ffffff',.42,'normal','#d9dcdf'
 def band(xb,y0,y1,W,tip,orient,cap):
     """orient='up'：上端が先端／'right'：右辺が先端。tip=True で先端を尖らせる"""
     xt=xb+(y0-y1)*K
@@ -23,7 +24,7 @@ def band(xb,y0,y1,W,tip,orient,cap):
     g=f'sh{CID[0]}'
     o=(f'<defs><linearGradient id="{g}" gradientUnits="userSpaceOnUse" x1="0" y1="900" x2="595" y2="100">'
        '<stop offset="0" stop-color="#000" stop-opacity=".18"/><stop offset=".42" stop-color="#fff" stop-opacity=".0"/>'
-       '<stop offset=".55" stop-color="#fff" stop-opacity=".22"/><stop offset=".68" stop-color="#fff" stop-opacity="0"/>'
+       '<stop offset=".55" stop-color="#fff" stop-opacity=".12"/><stop offset=".68" stop-color="#fff" stop-opacity="0"/>'
        '<stop offset="1" stop-color="#000" stop-opacity=".12"/></linearGradient></defs>')
     o+=f'<clipPath id="{c}"><path d="{d}"/></clipPath><path d="{d}" fill="{MAIN}"/><g clip-path="url(#{c})">'
     o+=f'<path d="{para(xb,y0,y1-200,13)}" fill="{DARK}"/>'                       # 片側の濃い縁
@@ -31,14 +32,16 @@ def band(xb,y0,y1,W,tip,orient,cap):
     if cap=='top' and not tip: o+=f'<path d="{para(xat(xb,y0,y1+20),y1+20,y1,W)}" fill="{DARK}"/>'
     o+=f'<rect x="-200" y="-200" width="1000" height="1200" fill="url(#{g})"/>'     # 鋼板の光沢
     ang=-56 if orient=='up' else 0
-    o+=brushed(d,ang,300+CID[0],bbox=(-400,-400,1000,1300),op=.30)               # ヘアラインの筋目
+    o+=brushed(d,ang,300+CID[0],bbox=(-400,-400,1000,1300),op=.18)               # ヘアラインの筋目
     return o+'</g>'
 def UPC(tip):   # 上昇：左から短・中・長、右の1本だけが上端へ突き抜ける
     o=''
     for xb,y1 in [(-56,540),(56,350),(168,-80)]:
         o+=band(xb,900,y1,96,tip,'up','top')
-    o+=f'<path d="{para(70,760,330,74)}" fill="{PANE}" opacity=".42"/>'
-    o+=f'<path d="{para(-150,900,420,70)}" fill="{PANE2}" opacity=".45"/>'
+    CID[0]+=1; uc=f'uc{CID[0]}'
+    o+=f'<clipPath id="{uc}">'+''.join(f'<path d="{para(xb,900,y1,96)}"/>' for xb,y1 in [(-56,540),(56,350),(168,-80)])+'</clipPath>'
+    o+=f'<g clip-path="url(#{uc})"><path d="{para(70,760,330,74)}" fill="{PA}" opacity="{PA_OP}" style="mix-blend-mode:{PA_BL}"/></g>'   # 帯の上だけに重なる面
+    o+=f'<path d="{para(-150,900,420,70)}" fill="{PB}" opacity=".9"/>'
     return o
 def RIGHTC(tip):  # 推進：上から短・中・長、下の1本だけが右端へ突き抜ける
     o='<g transform="rotate(-17 300 600)">'
