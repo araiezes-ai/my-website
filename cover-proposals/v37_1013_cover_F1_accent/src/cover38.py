@@ -7,7 +7,9 @@ def head(font,acc):
             f'<div class="a" style="left:48px;top:168px;font:400 14px/1 JO;letter-spacing:4.2px;color:#6b7178">CORPORATE PROFILE</div>')
 ACCS={'red':('#3e040d','#a3122a','#e8485c'),'copper':('#6e3519','#c27a4a','#efc6a2')}
 def lines3A(center_pts,acc,gid,x2,W=20,gap=22):
-    o=f'<defs>{mgrad(gid+"s",STEEL,0,842,x2,0)}{mgrad(gid+"a",acc,0,842,x2,0)}</defs>'
+    x0=x2-595   # 光の位置は常に表紙の座標で決める（見開きでも表紙部分は表紙単体と同じ光）
+    gr=(mgrad(gid+"s",STEEL,x0,842,x2,0)+mgrad(gid+"a",acc,x0,842,x2,0)).replace('<linearGradient ','<linearGradient spreadMethod="reflect" ')
+    o=f'<defs>{gr}</defs>'
     for k in (-1,0,1):
         pl=offset_poly(center_pts,k*(W+gap))
         quads,U,D=miter_quads(pl,W); outline=U+D[::-1]
